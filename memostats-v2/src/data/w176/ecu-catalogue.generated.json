@@ -1,0 +1,3529 @@
+{
+  "vehicle": "Mercedes-Benz A-Class W176 — MBito car 43, user vehicle 80903",
+  "sources": {
+    "catalog": "src/data/w176/sources/mbito-car43-ecu-catalog.json (= MemoStats/mbito-re/data/scan-candidates.json, GetCarsInfoGqlquery cars(id=43))",
+    "vehicleEcus": "src/data/w176/sources/mbito-vehicle80903-ecus.json (= MemoStats/mbito-re/data/vehicle-ecus.json, GetUserVehiclesGqlQuery)",
+    "evidence": "src/data/w176/evidence.json"
+  },
+  "summary": {
+    "catalogRecords": 119,
+    "uniqueEndpoints": 70,
+    "variants": 3612,
+    "currentVehicleEcus": 23,
+    "confirmedOnRealCar": 23,
+    "inOfficialCapture": 21,
+    "officialProbeNoResponse": 18
+  },
+  "nameCollisions": [],
+  "issues": [
+    "CRD variant 18899: op code \"4.80E+01\" is not 6 hex digits (kept raw, unusable for exact matching)",
+    "CRD variant 18900: op code \"4.80E+02\" is not 6 hex digits (kept raw, unusable for exact matching)",
+    "CRD variant 18901: op code \"4.80E+03\" is not 6 hex digits (kept raw, unusable for exact matching)",
+    "CRD variant 18902: op code \"4.80E+04\" is not 6 hex digits (kept raw, unusable for exact matching)",
+    "CRD variant 18903: op code \"4.80E+05\" is not 6 hex digits (kept raw, unusable for exact matching)",
+    "CRD variant 18904: op code \"4.80E+06\" is not 6 hex digits (kept raw, unusable for exact matching)",
+    "CRD variant 18905: op code \"4.80E+07\" is not 6 hex digits (kept raw, unusable for exact matching)",
+    "CRD variant 18906: op code \"4.80E+08\" is not 6 hex digits (kept raw, unusable for exact matching)",
+    "CRD variant 18907: op code \"4.80E+09\" is not 6 hex digits (kept raw, unusable for exact matching)",
+    "CRD variant 18908: op code \"4.80E+10\" is not 6 hex digits (kept raw, unusable for exact matching)"
+  ],
+  "endpoints": [
+    {
+      "key": "0x60A/0x481",
+      "txId": 1546,
+      "rxId": 1153,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "IC172",
+        "IC_204",
+        "IC197"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 901,
+          "name": "IC172",
+          "description": "Instrument cluster",
+          "group": "Information and communication",
+          "type": "REGULAR_ECU",
+          "variantCount": 274
+        },
+        {
+          "ecuId": 904,
+          "name": "IC_204",
+          "description": "Instrument cluster",
+          "group": "Information and communication",
+          "type": "REGULAR_ECU",
+          "variantCount": 80
+        },
+        {
+          "ecuId": 1200,
+          "name": "IC197",
+          "description": "Instrument Cluster",
+          "group": "Information and communication",
+          "type": "REGULAR_ECU",
+          "variantCount": 7
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": {
+        "name": "IC172",
+        "ecuId": 901,
+        "variantId": 11497,
+        "variantName": "IC_MFA_AeJ17",
+        "opCode": "00240B",
+        "hardwareNumber": "1769018902",
+        "softwareNumber": "172902270717290228071729022907246902360417290230071729023107"
+      },
+      "onThisCar": {
+        "level": "CONFIRMED_ON_REAL_CAR",
+        "detail": "Detected by the official MBito scan 2026-09-17 (user-reported)"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [
+        {
+          "uds": "22 F1 11",
+          "purpose": "F111 (reported as hardware no.)",
+          "timeoutMs": null,
+          "expectedResponseLength": null,
+          "delayAfterMs": null,
+          "response": null,
+          "responseAscii": "1769018902",
+          "rawTransport": null,
+          "who": "official MBito scan",
+          "level": "CONFIRMED_ON_REAL_CAR",
+          "source": "User reports: 2026-09-17 ('The official MBito scan detected 22 ECUs', master inventory of 22 CAN pairs with F111 values) and 2026-09-28 (CBCBOLERO was the one that did not respond). No raw frames except the capture excerpt above."
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "key": "0x60B/0x58B",
+      "txId": 1547,
+      "rxId": 1419,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "COM222",
+        "HERMES",
+        "PASS166"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 701,
+          "name": "COM222",
+          "description": "Telematics services",
+          "group": "Information and communication",
+          "type": "REGULAR_ECU",
+          "variantCount": 12
+        },
+        {
+          "ecuId": 853,
+          "name": "HERMES",
+          "description": "Telematics services control unit",
+          "group": "Information and communication",
+          "type": "REGULAR_ECU",
+          "variantCount": 57
+        },
+        {
+          "ecuId": 1006,
+          "name": "PASS166",
+          "description": "Mbrace telematics",
+          "group": "Information and communication",
+          "type": "REGULAR_ECU",
+          "variantCount": 15
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": {
+        "name": "HERMES",
+        "ecuId": 853,
+        "variantId": 9718,
+        "variantName": "Hermes_Gen_1_3",
+        "opCode": "000435",
+        "hardwareNumber": "2139014109",
+        "softwareNumber": ""
+      },
+      "onThisCar": {
+        "level": "CONFIRMED_ON_REAL_CAR",
+        "detail": "Detected by the official MBito scan 2026-09-17 (user-reported)"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x612/0x482",
+      "txId": 1554,
+      "rxId": 1154,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "EIS166",
+        "EZS166",
+        "EZS218",
+        "EZS231"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 802,
+          "name": "EIS166",
+          "description": "Electronic ignition lock",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 12
+        },
+        {
+          "ecuId": 826,
+          "name": "EZS166",
+          "description": "Electronic ignition lock",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 6
+        },
+        {
+          "ecuId": 827,
+          "name": "EZS218",
+          "description": "Electronic ignition lock",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 6
+        },
+        {
+          "ecuId": 828,
+          "name": "EZS231",
+          "description": "Electronic ignition lock",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 8
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": {
+        "name": "EZS166",
+        "ecuId": 826,
+        "variantId": 18168,
+        "variantName": "EZS166_0403",
+        "opCode": "020403",
+        "hardwareNumber": "2469055003",
+        "softwareNumber": ""
+      },
+      "onThisCar": {
+        "level": "CONFIRMED_ON_REAL_CAR",
+        "detail": "Detected by the official MBito scan 2026-09-17 (user-reported)"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [
+        {
+          "uds": "22 F1 11",
+          "purpose": "F111 (reported as hardware no.)",
+          "timeoutMs": null,
+          "expectedResponseLength": null,
+          "delayAfterMs": null,
+          "response": null,
+          "responseAscii": "2469055003",
+          "rawTransport": null,
+          "who": "official MBito scan",
+          "level": "CONFIRMED_ON_REAL_CAR",
+          "source": "User reports: 2026-09-17 ('The official MBito scan detected 22 ECUs', master inventory of 22 CAN pairs with F111 values) and 2026-09-28 (CBCBOLERO was the one that did not respond). No raw frames except the capture excerpt above."
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "key": "0x622/0x484",
+      "txId": 1570,
+      "rxId": 1156,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "SCCM166"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 1057,
+          "name": "SCCM166",
+          "description": "Steering column module",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 14
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": {
+        "name": "SCCM166",
+        "ecuId": 1057,
+        "variantId": 16184,
+        "variantName": "BR166_Valeo_0x0508",
+        "opCode": "000508",
+        "hardwareNumber": "2469016006",
+        "softwareNumber": "2469026702"
+      },
+      "onThisCar": {
+        "level": "CONFIRMED_ON_REAL_CAR",
+        "detail": "Detected by the official MBito scan 2026-09-17 (user-reported); raw frames in official capture"
+      },
+      "inOfficialCapture": true,
+      "officialScanProbe": {
+        "response": "50 03 00 14 00 C8",
+        "positive": true
+      },
+      "sessions": [
+        {
+          "request": "10 03",
+          "response": "50 03 00 14 00 C8",
+          "note": "DiagnosticSessionControl extended (official scan probe). 50 03 00 14 00 C8 → P2 20 ms, P2* 2000 ms (ISO 14229-2 encoding)",
+          "level": "CONFIRMED_FROM_OFFICIAL_CAPTURE",
+          "source": "capture-20260917-222558"
+        }
+      ],
+      "knownRequests": [
+        {
+          "uds": "22 F1 00",
+          "purpose": "F100 variant / op code",
+          "timeoutMs": 200,
+          "expectedResponseLength": 7,
+          "delayAfterMs": 0,
+          "response": "62 F1 00 00 05 08 03",
+          "responseAscii": null,
+          "rawTransport": "0x00 OK",
+          "who": "official MBito app (Scan Vehicle)",
+          "level": "CONFIRMED_FROM_OFFICIAL_CAPTURE",
+          "source": "capture-20260917-222558 — MemoStats/web/src/ecuInventory.selfcheck.ts (31-packet excerpt; the full session lived in Bluefy IndexedDB and is not in any file)"
+        },
+        {
+          "uds": "22 F1 8C",
+          "purpose": "F18C serial",
+          "timeoutMs": 600,
+          "expectedResponseLength": 6,
+          "delayAfterMs": 0,
+          "response": "62 F1 8C 31 37 31 36 34 34 33 31 30",
+          "responseAscii": "171644310",
+          "rawTransport": "0xFE PARTIAL_TIMEOUT",
+          "who": "official MBito app (Scan Vehicle)",
+          "level": "CONFIRMED_FROM_OFFICIAL_CAPTURE",
+          "source": "capture-20260917-222558 — MemoStats/web/src/ecuInventory.selfcheck.ts (31-packet excerpt; the full session lived in Bluefy IndexedDB and is not in any file)"
+        },
+        {
+          "uds": "22 F1 11",
+          "purpose": "F111 (reported as hardware no.)",
+          "timeoutMs": 600,
+          "expectedResponseLength": 6,
+          "delayAfterMs": 0,
+          "response": "62 F1 11 32 34 36 39 30 31 36 30 30 36",
+          "responseAscii": "2469016006",
+          "rawTransport": "0xFE PARTIAL_TIMEOUT",
+          "who": "official MBito app (Scan Vehicle)",
+          "level": "CONFIRMED_FROM_OFFICIAL_CAPTURE",
+          "source": "capture-20260917-222558 — MemoStats/web/src/ecuInventory.selfcheck.ts (31-packet excerpt; the full session lived in Bluefy IndexedDB and is not in any file)"
+        },
+        {
+          "uds": "22 F1 21",
+          "purpose": "F121 (reported as software no.)",
+          "timeoutMs": 600,
+          "expectedResponseLength": 6,
+          "delayAfterMs": 0,
+          "response": "62 F1 21 32 34 36 39 30 32 36 37 30 32",
+          "responseAscii": "2469026702",
+          "rawTransport": "0xFE PARTIAL_TIMEOUT",
+          "who": "official MBito app (Scan Vehicle)",
+          "level": "CONFIRMED_FROM_OFFICIAL_CAPTURE",
+          "source": "capture-20260917-222558 — MemoStats/web/src/ecuInventory.selfcheck.ts (31-packet excerpt; the full session lived in Bluefy IndexedDB and is not in any file)"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "key": "0x632/0x486",
+      "txId": 1586,
+      "rxId": 1158,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "ESP9MFA"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 820,
+          "name": "ESP9MFA",
+          "description": "Electronic stability program",
+          "group": "Chassis",
+          "type": "REGULAR_ECU",
+          "variantCount": 33
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": {
+        "name": "ESP9MFA",
+        "ecuId": 820,
+        "variantId": 9385,
+        "variantName": "00070A",
+        "opCode": "00070A",
+        "hardwareNumber": "2469014106",
+        "softwareNumber": "2469027801"
+      },
+      "onThisCar": {
+        "level": "CONFIRMED_ON_REAL_CAR",
+        "detail": "Detected by the official MBito scan 2026-09-17 (user-reported)"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x642/0x488",
+      "txId": 1602,
+      "rxId": 1160,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "TPM_172"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 1132,
+          "name": "TPM_172",
+          "description": "Tire pressure monitor",
+          "group": "Chassis",
+          "type": "REGULAR_ECU",
+          "variantCount": 12
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": {
+        "name": "TPM_172",
+        "ecuId": 1132,
+        "variantId": 17348,
+        "variantName": "Serie_Corax3_07",
+        "opCode": "003007",
+        "hardwareNumber": "0009017803",
+        "softwareNumber": "0009020417"
+      },
+      "onThisCar": {
+        "level": "CONFIRMED_ON_REAL_CAR",
+        "detail": "Detected by the official MBito scan 2026-09-17 (user-reported); raw frames in official capture"
+      },
+      "inOfficialCapture": true,
+      "officialScanProbe": {
+        "response": "50 03 00 14 00 C8",
+        "positive": true
+      },
+      "sessions": [
+        {
+          "request": "10 03",
+          "response": "50 03 00 14 00 C8",
+          "note": "DiagnosticSessionControl extended (official scan probe). 50 03 00 14 00 C8 → P2 20 ms, P2* 2000 ms (ISO 14229-2 encoding)",
+          "level": "CONFIRMED_FROM_OFFICIAL_CAPTURE",
+          "source": "capture-20260917-222558"
+        }
+      ],
+      "knownRequests": [
+        {
+          "uds": "22 F1 00",
+          "purpose": "F100 variant / op code",
+          "timeoutMs": 200,
+          "expectedResponseLength": 7,
+          "delayAfterMs": 0,
+          "response": "62 F1 00 00 30 07 03",
+          "responseAscii": null,
+          "rawTransport": "0x00 OK",
+          "who": "official MBito app (Scan Vehicle)",
+          "level": "CONFIRMED_FROM_OFFICIAL_CAPTURE",
+          "source": "capture-20260917-222558 — MemoStats/web/src/ecuInventory.selfcheck.ts (31-packet excerpt; the full session lived in Bluefy IndexedDB and is not in any file)"
+        },
+        {
+          "uds": "22 F1 8C",
+          "purpose": "F18C serial",
+          "timeoutMs": 600,
+          "expectedResponseLength": 6,
+          "delayAfterMs": 0,
+          "response": "62 F1 8C 30 39 32 38 30 31 34 34 31 37 30 30 32 36 32 30 34 33 35",
+          "responseAscii": "0928014417002620435",
+          "rawTransport": "0xFE PARTIAL_TIMEOUT",
+          "who": "official MBito app (Scan Vehicle)",
+          "level": "CONFIRMED_FROM_OFFICIAL_CAPTURE",
+          "source": "capture-20260917-222558 — MemoStats/web/src/ecuInventory.selfcheck.ts (31-packet excerpt; the full session lived in Bluefy IndexedDB and is not in any file)"
+        },
+        {
+          "uds": "22 F1 11",
+          "purpose": "F111 (reported as hardware no.)",
+          "timeoutMs": 600,
+          "expectedResponseLength": 6,
+          "delayAfterMs": 0,
+          "response": "62 F1 11 30 30 30 39 30 31 37 38 30 33",
+          "responseAscii": "0009017803",
+          "rawTransport": "0xFE PARTIAL_TIMEOUT",
+          "who": "official MBito app (Scan Vehicle)",
+          "level": "CONFIRMED_FROM_OFFICIAL_CAPTURE",
+          "source": "capture-20260917-222558 — MemoStats/web/src/ecuInventory.selfcheck.ts (31-packet excerpt; the full session lived in Bluefy IndexedDB and is not in any file)"
+        },
+        {
+          "uds": "22 F1 21",
+          "purpose": "F121 (reported as software no.)",
+          "timeoutMs": 600,
+          "expectedResponseLength": 6,
+          "delayAfterMs": 0,
+          "response": "62 F1 21 30 30 30 39 30 32 30 34 31 37",
+          "responseAscii": "0009020417",
+          "rawTransport": "0xFE PARTIAL_TIMEOUT",
+          "who": "official MBito app (Scan Vehicle)",
+          "level": "CONFIRMED_FROM_OFFICIAL_CAPTURE",
+          "source": "capture-20260917-222558 — MemoStats/web/src/ecuInventory.selfcheck.ts (31-packet excerpt; the full session lived in Bluefy IndexedDB and is not in any file)"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "key": "0x64A/0x489",
+      "txId": 1610,
+      "rxId": 1161,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "ORC166"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 999,
+          "name": "ORC166",
+          "description": "Airbag (SRS) system",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 16
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": {
+        "name": "ORC166",
+        "ecuId": 999,
+        "variantId": 15476,
+        "variantName": "Sample_0x00400B",
+        "opCode": "00400B",
+        "hardwareNumber": "1179017201",
+        "softwareNumber": "117902110217690320001769031900"
+      },
+      "onThisCar": {
+        "level": "CONFIRMED_ON_REAL_CAR",
+        "detail": "Detected by the official MBito scan 2026-09-17 (user-reported)"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [
+        {
+          "uds": "22 F1 11",
+          "purpose": "F111 (reported as hardware no.)",
+          "timeoutMs": null,
+          "expectedResponseLength": null,
+          "delayAfterMs": null,
+          "response": null,
+          "responseAscii": "1179017201",
+          "rawTransport": null,
+          "who": "official MBito scan",
+          "level": "CONFIRMED_ON_REAL_CAR",
+          "source": "User reports: 2026-09-17 ('The official MBito scan detected 22 ECUs', master inventory of 22 CAN pairs with F111 values) and 2026-09-28 (CBCBOLERO was the one that did not respond). No raw frames except the capture excerpt above."
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "key": "0x652/0x48A",
+      "txId": 1618,
+      "rxId": 1162,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "HU45",
+        "HU5S1",
+        "USBR45"
+      ],
+      "types": [
+        "OLD_ECU",
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 871,
+          "name": "HU45",
+          "description": "Head unit (Audio/COMAND)",
+          "group": "Information and communication",
+          "type": "OLD_ECU",
+          "variantCount": 145
+        },
+        {
+          "ecuId": 873,
+          "name": "HU5S1",
+          "description": "Head unit (Audio/COMAND)",
+          "group": "Information and communication",
+          "type": "REGULAR_ECU",
+          "variantCount": 124
+        },
+        {
+          "ecuId": 1156,
+          "name": "USBR45",
+          "description": "USB interface module",
+          "group": "Information and communication",
+          "type": "REGULAR_ECU",
+          "variantCount": 6
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": {
+        "name": "HU5S1",
+        "ecuId": 873,
+        "variantId": 18199,
+        "variantName": "Entry_FreshUp_2",
+        "opCode": "027302",
+        "hardwareNumber": "2469012507",
+        "softwareNumber": "172902320817690227022469028004"
+      },
+      "onThisCar": {
+        "level": "CONFIRMED_ON_REAL_CAR",
+        "detail": "Detected by the official MBito scan 2026-09-17 (user-reported)"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [
+        {
+          "uds": "22 F1 11",
+          "purpose": "F111 (reported as hardware no.)",
+          "timeoutMs": null,
+          "expectedResponseLength": null,
+          "delayAfterMs": null,
+          "response": null,
+          "responseAscii": "2469012507",
+          "rawTransport": null,
+          "who": "official MBito scan",
+          "level": "CONFIRMED_ON_REAL_CAR",
+          "source": "User reports: 2026-09-17 ('The official MBito scan detected 22 ECUs', master inventory of 22 CAN pairs with F111 values) and 2026-09-28 (CBCBOLERO was the one that did not respond). No raw frames except the capture excerpt above."
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "key": "0x65A/0x48B",
+      "txId": 1626,
+      "rxId": 1163,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "FCW246"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 831,
+          "name": "FCW246",
+          "description": "Collision prevention assist",
+          "group": "Driver assistance system",
+          "type": "REGULAR_ECU",
+          "variantCount": 20
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": {
+        "name": "FCW246",
+        "ecuId": 831,
+        "variantId": 18169,
+        "variantName": "CPA30_000306",
+        "opCode": "000306",
+        "hardwareNumber": "0009018504",
+        "softwareNumber": "0009024035"
+      },
+      "onThisCar": {
+        "level": "CONFIRMED_ON_REAL_CAR",
+        "detail": "Detected by the official MBito scan 2026-09-17 (user-reported)"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [
+        {
+          "uds": "22 F1 11",
+          "purpose": "F111 (reported as hardware no.)",
+          "timeoutMs": null,
+          "expectedResponseLength": null,
+          "delayAfterMs": null,
+          "response": null,
+          "responseAscii": "0009018504",
+          "rawTransport": null,
+          "who": "official MBito scan",
+          "level": "CONFIRMED_ON_REAL_CAR",
+          "source": "User reports: 2026-09-17 ('The official MBito scan detected 22 ECUs', master inventory of 22 CAN pairs with F111 values) and 2026-09-28 (CBCBOLERO was the one that did not respond). No raw frames except the capture excerpt above."
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "key": "0x68B/0x4D1",
+      "txId": 1675,
+      "rxId": 1233,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "KG212M"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 919,
+          "name": "KG212M",
+          "description": "Keyless-GO",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 9
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": {
+        "name": "KG212M",
+        "ecuId": 919,
+        "variantId": 11749,
+        "variantName": "KGSTAR1_0012",
+        "opCode": "000012",
+        "hardwareNumber": "2129010107",
+        "softwareNumber": "2129025511"
+      },
+      "onThisCar": {
+        "level": "CONFIRMED_ON_REAL_CAR",
+        "detail": "Detected by the official MBito scan 2026-09-17 (user-reported)"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [
+        {
+          "uds": "22 F1 11",
+          "purpose": "F111 (reported as hardware no.)",
+          "timeoutMs": null,
+          "expectedResponseLength": null,
+          "delayAfterMs": null,
+          "response": null,
+          "responseAscii": "2129010107",
+          "rawTransport": null,
+          "who": "official MBito scan",
+          "level": "CONFIRMED_ON_REAL_CAR",
+          "source": "User reports: 2026-09-17 ('The official MBito scan detected 22 ECUs', master inventory of 22 CAN pairs with F111 values) and 2026-09-28 (CBCBOLERO was the one that did not respond). No raw frames except the capture excerpt above."
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "key": "0x6A2/0x494",
+      "txId": 1698,
+      "rxId": 1172,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "MPC212",
+        "SMPC212"
+      ],
+      "types": [
+        "OLD_ECU_MANSPEC",
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 978,
+          "name": "MPC212",
+          "description": "Multifunction camera",
+          "group": "Driver assistance system",
+          "type": "OLD_ECU_MANSPEC",
+          "variantCount": 59
+        },
+        {
+          "ecuId": 1092,
+          "name": "SMPC212",
+          "description": "Multifunction camera",
+          "group": "Driver assistance system",
+          "type": "REGULAR_ECU",
+          "variantCount": 26
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": {
+        "name": "SMPC212",
+        "ecuId": 1092,
+        "variantId": 16857,
+        "variantName": "MMPC212_AEJ14_000216_IHC_Solo",
+        "opCode": "000210",
+        "hardwareNumber": "2079012900",
+        "softwareNumber": "0009024525"
+      },
+      "onThisCar": {
+        "level": "CONFIRMED_ON_REAL_CAR",
+        "detail": "Detected by the official MBito scan 2026-09-17 (user-reported)"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [
+        {
+          "uds": "22 F1 11",
+          "purpose": "F111 (reported as hardware no.)",
+          "timeoutMs": null,
+          "expectedResponseLength": null,
+          "delayAfterMs": null,
+          "response": null,
+          "responseAscii": "2079012900",
+          "rawTransport": null,
+          "who": "official MBito scan",
+          "level": "CONFIRMED_ON_REAL_CAR",
+          "source": "User reports: 2026-09-17 ('The official MBito scan detected 22 ECUs', master inventory of 22 CAN pairs with F111 values) and 2026-09-28 (CBCBOLERO was the one that did not respond). No raw frames except the capture excerpt above."
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "key": "0x6A3/0x4D4",
+      "txId": 1699,
+      "rxId": 1236,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "HVAC246"
+      ],
+      "types": [
+        "OLD_ECU_MANSPEC"
+      ],
+      "records": [
+        {
+          "ecuId": 883,
+          "name": "HVAC246",
+          "description": "Air conditioning",
+          "group": "Body",
+          "type": "OLD_ECU_MANSPEC",
+          "variantCount": 81
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": {
+        "name": "HVAC246",
+        "ecuId": 883,
+        "variantId": 10955,
+        "variantName": "1_Zonen_22_Release28_1",
+        "opCode": "007116",
+        "hardwareNumber": "2469013106",
+        "softwareNumber": "2469023403"
+      },
+      "onThisCar": {
+        "level": "CONFIRMED_ON_REAL_CAR",
+        "detail": "Detected by the official MBito scan 2026-09-17 (user-reported)"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [
+        {
+          "uds": "22 F1 11",
+          "purpose": "F111 (reported as hardware no.)",
+          "timeoutMs": null,
+          "expectedResponseLength": null,
+          "delayAfterMs": null,
+          "response": null,
+          "responseAscii": "2469013106",
+          "rawTransport": null,
+          "who": "official MBito scan",
+          "level": "CONFIRMED_ON_REAL_CAR",
+          "source": "User reports: 2026-09-17 ('The official MBito scan detected 22 ECUs', master inventory of 22 CAN pairs with F111 values) and 2026-09-28 (CBCBOLERO was the one that did not respond). No raw frames except the capture excerpt above."
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "key": "0x6B2/0x496",
+      "txId": 1714,
+      "rxId": 1174,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "EPS246"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 814,
+          "name": "EPS246",
+          "description": "Electric power steering",
+          "group": "Chassis",
+          "type": "REGULAR_ECU",
+          "variantCount": 13
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": {
+        "name": "EPS246",
+        "ecuId": 814,
+        "variantId": 9287,
+        "variantName": "EPS246_0201",
+        "opCode": "000201",
+        "hardwareNumber": "2469013902",
+        "softwareNumber": "2469022103"
+      },
+      "onThisCar": {
+        "level": "CONFIRMED_ON_REAL_CAR",
+        "detail": "Detected by the official MBito scan 2026-09-17 (user-reported)"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x6F3/0x4DE",
+      "txId": 1779,
+      "rxId": 1246,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "CBC",
+        "CBCBOLERO"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 687,
+          "name": "CBC",
+          "description": "Front SAM module",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 18
+        },
+        {
+          "ecuId": 688,
+          "name": "CBCBOLERO",
+          "description": "Front SAM module",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 8
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": {
+        "name": "CBCBOLERO",
+        "ecuId": 688,
+        "variantId": 7537,
+        "variantName": "CBC_Rel30_02E608_Bolero_3M",
+        "opCode": "02E608",
+        "hardwareNumber": "1569019800",
+        "softwareNumber": "1569021400"
+      },
+      "onThisCar": {
+        "level": "CONFIRMED_ON_REAL_CAR",
+        "detail": "Not detected by the 2026-09-17 official scan, but real replies were reported (see known requests)"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [
+        {
+          "uds": "22 F1 00",
+          "purpose": "F100 variant / op code",
+          "timeoutMs": null,
+          "expectedResponseLength": null,
+          "delayAfterMs": null,
+          "response": "62 F1 00 02 E6 08 01",
+          "responseAscii": null,
+          "rawTransport": "0xFE",
+          "who": "unspecified real session",
+          "level": "CONFIRMED_ON_REAL_CAR",
+          "source": "Master spec §10/§58 (user)"
+        },
+        {
+          "uds": "19 02 0D",
+          "purpose": "DTC list, mask 0D",
+          "timeoutMs": null,
+          "expectedResponseLength": null,
+          "delayAfterMs": null,
+          "response": "DTC 25 56 7B status 2B (P25567B)",
+          "responseAscii": null,
+          "rawTransport": null,
+          "who": "unspecified real session",
+          "level": "CONFIRMED_ON_REAL_CAR",
+          "source": "User report 2026-09-18T13:05 (2026-09-18)"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "key": "0x6FA/0x49F",
+      "txId": 1786,
+      "rxId": 1183,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "FSCM212"
+      ],
+      "types": [
+        "OLD_ECU_MANSPEC"
+      ],
+      "records": [
+        {
+          "ecuId": 835,
+          "name": "FSCM212",
+          "description": "Fuel pump control module",
+          "group": "Drivetrain",
+          "type": "OLD_ECU_MANSPEC",
+          "variantCount": 15
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": {
+        "name": "FSCM212",
+        "ecuId": 835,
+        "variantId": 9566,
+        "variantName": "FSCM_Light_1D03",
+        "opCode": "001D03",
+        "hardwareNumber": "0009014000",
+        "softwareNumber": "0009026105"
+      },
+      "onThisCar": {
+        "level": "CONFIRMED_ON_REAL_CAR",
+        "detail": "Detected by the official MBito scan 2026-09-17 (user-reported)"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [
+        {
+          "uds": "22 F1 11",
+          "purpose": "F111 (reported as hardware no.)",
+          "timeoutMs": null,
+          "expectedResponseLength": null,
+          "delayAfterMs": null,
+          "response": null,
+          "responseAscii": "0009014000",
+          "rawTransport": null,
+          "who": "official MBito scan",
+          "level": "CONFIRMED_ON_REAL_CAR",
+          "source": "User reports: 2026-09-17 ('The official MBito scan detected 22 ECUs', master inventory of 22 CAN pairs with F111 values) and 2026-09-28 (CBCBOLERO was the one that did not respond). No raw frames except the capture excerpt above."
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "key": "0x703/0x4E0",
+      "txId": 1795,
+      "rxId": 1248,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "DMFL166"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 747,
+          "name": "DMFL166",
+          "description": "Left front door control module",
+          "group": "Seats and doors",
+          "type": "REGULAR_ECU",
+          "variantCount": 20
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": {
+        "name": "DMFL166",
+        "ecuId": 747,
+        "variantId": 8558,
+        "variantName": "DM_AEJ15_Update_Logo_Lamp",
+        "opCode": "00040C",
+        "hardwareNumber": "1669013701",
+        "softwareNumber": "1669025208"
+      },
+      "onThisCar": {
+        "level": "CONFIRMED_ON_REAL_CAR",
+        "detail": "Detected by the official MBito scan 2026-09-17 (user-reported)"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [
+        {
+          "uds": "22 F1 00",
+          "purpose": "F100 variant / op code",
+          "timeoutMs": null,
+          "expectedResponseLength": null,
+          "delayAfterMs": null,
+          "response": "62 F1 00 00 04 0C 03",
+          "responseAscii": null,
+          "rawTransport": null,
+          "who": "official MBito scan",
+          "level": "CONFIRMED_ON_REAL_CAR",
+          "source": "User report 2026-09-17T22:48 (2026-09-17)"
+        },
+        {
+          "uds": "22 F1 11",
+          "purpose": "F111 (reported as hardware no.)",
+          "timeoutMs": null,
+          "expectedResponseLength": null,
+          "delayAfterMs": null,
+          "response": null,
+          "responseAscii": "1669013701",
+          "rawTransport": null,
+          "who": "official MBito scan",
+          "level": "CONFIRMED_ON_REAL_CAR",
+          "source": "User reports: 2026-09-17 ('The official MBito scan detected 22 ECUs', master inventory of 22 CAN pairs with F111 values) and 2026-09-28 (CBCBOLERO was the one that did not respond). No raw frames except the capture excerpt above."
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "key": "0x70B/0x4E1",
+      "txId": 1803,
+      "rxId": 1249,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "DMFR166"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 751,
+          "name": "DMFR166",
+          "description": "Right front door control module",
+          "group": "Seats and doors",
+          "type": "REGULAR_ECU",
+          "variantCount": 20
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": {
+        "name": "DMFR166",
+        "ecuId": 751,
+        "variantId": 8623,
+        "variantName": "DM_AEJ15_Update_Logo_Lamp",
+        "opCode": "00040C",
+        "hardwareNumber": "1669013901",
+        "softwareNumber": "1669025408"
+      },
+      "onThisCar": {
+        "level": "CONFIRMED_ON_REAL_CAR",
+        "detail": "Detected by the official MBito scan 2026-09-17 (user-reported)"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [
+        {
+          "uds": "22 F1 11",
+          "purpose": "F111 (reported as hardware no.)",
+          "timeoutMs": null,
+          "expectedResponseLength": null,
+          "delayAfterMs": null,
+          "response": null,
+          "responseAscii": "1669013901",
+          "rawTransport": null,
+          "who": "official MBito scan",
+          "level": "CONFIRMED_ON_REAL_CAR",
+          "source": "User reports: 2026-09-17 ('The official MBito scan detected 22 ECUs', master inventory of 22 CAN pairs with F111 values) and 2026-09-28 (CBCBOLERO was the one that did not respond). No raw frames except the capture excerpt above."
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "key": "0x732/0x4A6",
+      "txId": 1842,
+      "rxId": 1190,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "EPKB166"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 806,
+          "name": "EPKB166",
+          "description": "Electric parking brake",
+          "group": "Chassis",
+          "type": "REGULAR_ECU",
+          "variantCount": 16
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": {
+        "name": "EPKB166",
+        "ecuId": 806,
+        "variantId": 9106,
+        "variantName": "_00000D",
+        "opCode": "00000D",
+        "hardwareNumber": "2469014406",
+        "softwareNumber": "2469028303"
+      },
+      "onThisCar": {
+        "level": "CONFIRMED_ON_REAL_CAR",
+        "detail": "Detected by the official MBito scan 2026-09-17 (user-reported)"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [
+        {
+          "uds": "22 F1 11",
+          "purpose": "F111 (reported as hardware no.)",
+          "timeoutMs": null,
+          "expectedResponseLength": null,
+          "delayAfterMs": null,
+          "response": null,
+          "responseAscii": "2469014406",
+          "rawTransport": null,
+          "who": "official MBito scan",
+          "level": "CONFIRMED_ON_REAL_CAR",
+          "source": "User reports: 2026-09-17 ('The official MBito scan detected 22 ECUs', master inventory of 22 CAN pairs with F111 values) and 2026-09-28 (CBCBOLERO was the one that did not respond). No raw frames except the capture excerpt above."
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "key": "0x743/0x4E8",
+      "txId": 1859,
+      "rxId": 1256,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "CTRLC5S1",
+        "CTRLC_204"
+      ],
+      "types": [
+        "REGULAR_ECU",
+        "OLD_ECU_MANSPEC"
+      ],
+      "records": [
+        {
+          "ecuId": 727,
+          "name": "CTRLC5S1",
+          "description": "Audio operating unit",
+          "group": "Information and communication",
+          "type": "REGULAR_ECU",
+          "variantCount": 3
+        },
+        {
+          "ecuId": 729,
+          "name": "CTRLC_204",
+          "description": "Audio operating unit",
+          "group": "Information and communication",
+          "type": "OLD_ECU_MANSPEC",
+          "variantCount": 16
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": {
+        "name": "CTRLC5S1",
+        "ecuId": 727,
+        "variantId": 8361,
+        "variantName": "Dev_1",
+        "opCode": "00E000",
+        "hardwareNumber": "2469010706",
+        "softwareNumber": "2469022203"
+      },
+      "onThisCar": {
+        "level": "CONFIRMED_ON_REAL_CAR",
+        "detail": "Detected by the official MBito scan 2026-09-17 (user-reported)"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [
+        {
+          "uds": "22 F1 11",
+          "purpose": "F111 (reported as hardware no.)",
+          "timeoutMs": null,
+          "expectedResponseLength": null,
+          "delayAfterMs": null,
+          "response": null,
+          "responseAscii": "2469010706",
+          "rawTransport": null,
+          "who": "official MBito scan",
+          "level": "CONFIRMED_ON_REAL_CAR",
+          "source": "User reports: 2026-09-17 ('The official MBito scan detected 22 ECUs', master inventory of 22 CAN pairs with F111 values) and 2026-09-28 (CBCBOLERO was the one that did not respond). No raw frames except the capture excerpt above."
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "key": "0x76A/0x4AD",
+      "txId": 1898,
+      "rxId": 1197,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "HLC166",
+        "HLI_FL176",
+        "HLI_FL212"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 854,
+          "name": "HLC166",
+          "description": "Headlamp control unit",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 12
+        },
+        {
+          "ecuId": 855,
+          "name": "HLI_FL176",
+          "description": "Left headlamp",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 5
+        },
+        {
+          "ecuId": 856,
+          "name": "HLI_FL212",
+          "description": "Left headlamp",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 7
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": {
+        "name": "HLI_FL176",
+        "ecuId": 855,
+        "variantId": 9738,
+        "variantName": "B17_Variante",
+        "opCode": "001101",
+        "hardwareNumber": "1769017402",
+        "softwareNumber": "1769022101"
+      },
+      "onThisCar": {
+        "level": "CONFIRMED_ON_REAL_CAR",
+        "detail": "Detected by the official MBito scan 2026-09-17 (user-reported)"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [
+        {
+          "uds": "22 F1 11",
+          "purpose": "F111 (reported as hardware no.)",
+          "timeoutMs": null,
+          "expectedResponseLength": null,
+          "delayAfterMs": null,
+          "response": null,
+          "responseAscii": "1769017402",
+          "rawTransport": null,
+          "who": "official MBito scan",
+          "level": "CONFIRMED_ON_REAL_CAR",
+          "source": "User reports: 2026-09-17 ('The official MBito scan detected 22 ECUs', master inventory of 22 CAN pairs with F111 values) and 2026-09-28 (CBCBOLERO was the one that did not respond). No raw frames except the capture excerpt above."
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "key": "0x772/0x4AE",
+      "txId": 1906,
+      "rxId": 1198,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "HLI_FR176",
+        "HLI_FR212"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 859,
+          "name": "HLI_FR176",
+          "description": "Right headlamp",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 5
+        },
+        {
+          "ecuId": 860,
+          "name": "HLI_FR212",
+          "description": "Right headlamp",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 7
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": {
+        "name": "HLI_FR176",
+        "ecuId": 859,
+        "variantId": 9766,
+        "variantName": "B17_Variante",
+        "opCode": "001101",
+        "hardwareNumber": "1769017402",
+        "softwareNumber": "1769022101"
+      },
+      "onThisCar": {
+        "level": "CONFIRMED_ON_REAL_CAR",
+        "detail": "Detected by the official MBito scan 2026-09-17 (user-reported)"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [
+        {
+          "uds": "22 F1 11",
+          "purpose": "F111 (reported as hardware no.)",
+          "timeoutMs": null,
+          "expectedResponseLength": null,
+          "delayAfterMs": null,
+          "response": null,
+          "responseAscii": "1769017402",
+          "rawTransport": null,
+          "who": "official MBito scan",
+          "level": "CONFIRMED_ON_REAL_CAR",
+          "source": "User reports: 2026-09-17 ('The official MBito scan detected 22 ECUs', master inventory of 22 CAN pairs with F111 values) and 2026-09-28 (CBCBOLERO was the one that did not respond). No raw frames except the capture excerpt above."
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "key": "0x78A/0x4B1",
+      "txId": 1930,
+      "rxId": 1201,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "PARK117",
+        "PTS246"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 1004,
+          "name": "PARK117",
+          "description": "Parking system",
+          "group": "Driver assistance system",
+          "type": "REGULAR_ECU",
+          "variantCount": 4
+        },
+        {
+          "ecuId": 1024,
+          "name": "PTS246",
+          "description": "Parking system",
+          "group": "Driver assistance system",
+          "type": "REGULAR_ECU",
+          "variantCount": 6
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": {
+        "name": "PARK117",
+        "ecuId": 1004,
+        "variantId": 15539,
+        "variantName": "Appl_004501",
+        "opCode": "004501",
+        "hardwareNumber": "0009017602",
+        "softwareNumber": "0009029537"
+      },
+      "onThisCar": {
+        "level": "CONFIRMED_ON_REAL_CAR",
+        "detail": "Detected by the official MBito scan 2026-09-17 (user-reported); raw frames in official capture"
+      },
+      "inOfficialCapture": true,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [
+        {
+          "uds": "22 F1 8C",
+          "purpose": "F18C serial",
+          "timeoutMs": 600,
+          "expectedResponseLength": 6,
+          "delayAfterMs": 0,
+          "response": "62 F1 8C 33 30 34 30 30 37 33 31 37 31 35 37 30 34 34 33 32",
+          "responseAscii": "30400731715704432",
+          "rawTransport": "0xFE PARTIAL_TIMEOUT",
+          "who": "official MBito app (Scan Vehicle)",
+          "level": "CONFIRMED_FROM_OFFICIAL_CAPTURE",
+          "source": "capture-20260917-222558 — MemoStats/web/src/ecuInventory.selfcheck.ts (31-packet excerpt; the full session lived in Bluefy IndexedDB and is not in any file)"
+        },
+        {
+          "uds": "22 F1 11",
+          "purpose": "F111 (reported as hardware no.)",
+          "timeoutMs": 600,
+          "expectedResponseLength": 6,
+          "delayAfterMs": 0,
+          "response": "62 F1 11 30 30 30 39 30 31 37 36 30 32",
+          "responseAscii": "0009017602",
+          "rawTransport": "0xFE PARTIAL_TIMEOUT",
+          "who": "official MBito app (Scan Vehicle)",
+          "level": "CONFIRMED_FROM_OFFICIAL_CAPTURE",
+          "source": "capture-20260917-222558 — MemoStats/web/src/ecuInventory.selfcheck.ts (31-packet excerpt; the full session lived in Bluefy IndexedDB and is not in any file)"
+        },
+        {
+          "uds": "22 F1 21",
+          "purpose": "F121 (reported as software no.)",
+          "timeoutMs": 600,
+          "expectedResponseLength": 6,
+          "delayAfterMs": 0,
+          "response": "62 F1 21 30 30 30 39 30 32 39 35 33 37",
+          "responseAscii": "0009029537",
+          "rawTransport": "0xFE PARTIAL_TIMEOUT",
+          "who": "official MBito app (Scan Vehicle)",
+          "level": "CONFIRMED_FROM_OFFICIAL_CAPTURE",
+          "source": "capture-20260917-222558 — MemoStats/web/src/ecuInventory.selfcheck.ts (31-packet excerpt; the full session lived in Bluefy IndexedDB and is not in any file)"
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "key": "0x7E0/0x7E8",
+      "txId": 2016,
+      "rxId": 2024,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "CRD",
+        "CRD3",
+        "CRR1",
+        "MED40",
+        "MED40AMG"
+      ],
+      "types": [
+        "OLD_ECU",
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 719,
+          "name": "CRD",
+          "description": "Motor electronics",
+          "group": "Drivetrain",
+          "type": "OLD_ECU",
+          "variantCount": 50
+        },
+        {
+          "ecuId": 721,
+          "name": "CRD3",
+          "description": "Motor electronics",
+          "group": "Drivetrain",
+          "type": "REGULAR_ECU",
+          "variantCount": 32
+        },
+        {
+          "ecuId": 724,
+          "name": "CRR1",
+          "description": "Motor electronics",
+          "group": "Drivetrain",
+          "type": "REGULAR_ECU",
+          "variantCount": 48
+        },
+        {
+          "ecuId": 963,
+          "name": "MED40",
+          "description": "Motor electronics",
+          "group": "Drivetrain",
+          "type": "REGULAR_ECU",
+          "variantCount": 993
+        },
+        {
+          "ecuId": 964,
+          "name": "MED40AMG",
+          "description": "Motor electronics",
+          "group": "Drivetrain",
+          "type": "REGULAR_ECU",
+          "variantCount": 62
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": {
+        "name": "MED40",
+        "ecuId": 963,
+        "variantId": 14694,
+        "variantName": "VC11_A",
+        "opCode": "022857",
+        "hardwareNumber": "2709011700",
+        "softwareNumber": "270904070027090293002709039801"
+      },
+      "onThisCar": {
+        "level": "CONFIRMED_ON_REAL_CAR",
+        "detail": "Detected by the official MBito scan 2026-09-17 (user-reported)"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [
+        {
+          "uds": "22 F1 00",
+          "purpose": "F100 variant / op code",
+          "timeoutMs": null,
+          "expectedResponseLength": null,
+          "delayAfterMs": null,
+          "response": "62 F1 00 02 28 57 03",
+          "responseAscii": null,
+          "rawTransport": null,
+          "who": "official MBito scan",
+          "level": "CONFIRMED_ON_REAL_CAR",
+          "source": "User report 2026-09-17T22:48 (old session transcript) (2026-09-17)"
+        },
+        {
+          "uds": "19 01 0D",
+          "purpose": "DTC count, mask 0D",
+          "timeoutMs": null,
+          "expectedResponseLength": null,
+          "delayAfterMs": null,
+          "response": "59 01 FF 01 00 03",
+          "responseAscii": null,
+          "rawTransport": null,
+          "who": "official MBito app",
+          "level": "CONFIRMED_ON_REAL_CAR",
+          "source": "User report 2026-09-18T13:05 (old session transcript) (2026-09-18)"
+        },
+        {
+          "uds": "19 02 0D",
+          "purpose": "DTC list, mask 0D",
+          "timeoutMs": null,
+          "expectedResponseLength": null,
+          "delayAfterMs": null,
+          "response": "59 02 FF 05 2E 71 64 D4 57 00 64 06 DA 00 64",
+          "responseAscii": null,
+          "rawTransport": null,
+          "who": "official MBito app",
+          "level": "CONFIRMED_ON_REAL_CAR",
+          "source": "User report 2026-09-18T13:05; master spec §32 (2026-09-18)"
+        },
+        {
+          "uds": "01 0D",
+          "purpose": "OBD vehicle speed",
+          "timeoutMs": null,
+          "expectedResponseLength": null,
+          "delayAfterMs": null,
+          "response": "41 0D 1B",
+          "responseAscii": null,
+          "rawTransport": null,
+          "who": "old MemoStats (EXEC_UDS 40 79 …, engine running)",
+          "level": "CONFIRMED_ON_REAL_CAR",
+          "source": "User report 2026-09-17T16:09 + old project memory project_mbito_obd.md (2026-09-17)"
+        },
+        {
+          "uds": "22 F1 00",
+          "purpose": "F100 variant / op code",
+          "timeoutMs": null,
+          "expectedResponseLength": null,
+          "delayAfterMs": null,
+          "response": null,
+          "responseAscii": null,
+          "rawTransport": "0xFD",
+          "who": "MemoStats V2 0.1.0 (timeout 600, exp_len 7, request_nr 1)",
+          "level": "CONFIRMED_ON_REAL_CAR",
+          "source": "V2 vehicle test 23:38; dongle voltage 12.431 V (engine not running; ignition state not recorded). RX: C0 01 15 00 00 01 FD E0 07 00 00 E8 07 00 00 58 02 00 00 07 00 03 00 00 00 (2026-09-28)"
+        },
+        {
+          "uds": "22 F1 11",
+          "purpose": "F111 (reported as hardware no.)",
+          "timeoutMs": null,
+          "expectedResponseLength": null,
+          "delayAfterMs": null,
+          "response": null,
+          "responseAscii": "2709011700",
+          "rawTransport": null,
+          "who": "official MBito scan",
+          "level": "CONFIRMED_ON_REAL_CAR",
+          "source": "User reports: 2026-09-17 ('The official MBito scan detected 22 ECUs', master inventory of 22 CAN pairs with F111 values) and 2026-09-28 (CBCBOLERO was the one that did not respond). No raw frames except the capture excerpt above."
+        }
+      ],
+      "warnings": []
+    },
+    {
+      "key": "0x45C/0x45D",
+      "txId": 1116,
+      "rxId": 1117,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "ECALL_RUS"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 796,
+          "name": "ECALL_RUS",
+          "description": "E-call module",
+          "group": "Information and communication",
+          "type": "REGULAR_ECU",
+          "variantCount": 5
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x62A/0x485",
+      "txId": 1578,
+      "rxId": 1157,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "DRVU"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 765,
+          "name": "DRVU",
+          "description": "Drive unit control module",
+          "group": "Drivetrain",
+          "type": "REGULAR_ECU",
+          "variantCount": 14
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x633/0x4C6",
+      "txId": 1587,
+      "rxId": 1222,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "NAVBOX45"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 982,
+          "name": "NAVBOX45",
+          "description": "Navigation module",
+          "group": "Information and communication",
+          "type": "REGULAR_ECU",
+          "variantCount": 5
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x638/0x5B8",
+      "txId": 1592,
+      "rxId": 1464,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "HU5",
+        "HU5_ENTRY"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 872,
+          "name": "HU5",
+          "description": "Head unit (Audio/COMAND)",
+          "group": "Information and communication",
+          "type": "REGULAR_ECU",
+          "variantCount": 174
+        },
+        {
+          "ecuId": 874,
+          "name": "HU5_ENTRY",
+          "description": "Head unit (Audio/COMAND)",
+          "group": "Information and communication",
+          "type": "REGULAR_ECU",
+          "variantCount": 58
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x63B/0x4C7",
+      "txId": 1595,
+      "rxId": 1223,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "VTA166"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 1164,
+          "name": "VTA166",
+          "description": "Tow-away protection system",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 14
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x672/0x48E",
+      "txId": 1650,
+      "rxId": 1166,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "IBSM212_R1",
+        "IBSM3G_R1"
+      ],
+      "types": [
+        "OLD_ECU_MANSPEC",
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 895,
+          "name": "IBSM212_R1",
+          "description": "Outer right rear radar sensor",
+          "group": "Driver assistance system",
+          "type": "OLD_ECU_MANSPEC",
+          "variantCount": 3
+        },
+        {
+          "ecuId": 899,
+          "name": "IBSM3G_R1",
+          "description": "Outer right rear integrated radar sensor",
+          "group": "Driver assistance system",
+          "type": "REGULAR_ECU",
+          "variantCount": 4
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x67A/0x48F",
+      "txId": 1658,
+      "rxId": 1167,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "IBSM212_R4",
+        "IBSM3G_R4"
+      ],
+      "types": [
+        "OLD_ECU_MANSPEC",
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 896,
+          "name": "IBSM212_R4",
+          "description": "Outer left rear radar sensor",
+          "group": "Driver assistance system",
+          "type": "OLD_ECU_MANSPEC",
+          "variantCount": 3
+        },
+        {
+          "ecuId": 900,
+          "name": "IBSM3G_R4",
+          "description": "Outer left rear integrated radar sensor",
+          "group": "Driver assistance system",
+          "type": "REGULAR_ECU",
+          "variantCount": 4
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x683/0x4D0",
+      "txId": 1667,
+      "rxId": 1232,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "MPM"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 979,
+          "name": "MPM",
+          "description": "Multifunction control unit",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 15
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x68A/0x491",
+      "txId": 1674,
+      "rxId": 1169,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "ESS292"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 825,
+          "name": "ESS292",
+          "description": "Engine sound system",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 11
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x691/0x452",
+      "txId": 1681,
+      "rxId": 1106,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "SND5S1",
+        "SOUND45",
+        "SOUND_204"
+      ],
+      "types": [
+        "REGULAR_ECU",
+        "OLD_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 1095,
+          "name": "SND5S1",
+          "description": "Sound system",
+          "group": "Information and communication",
+          "type": "REGULAR_ECU",
+          "variantCount": 26
+        },
+        {
+          "ecuId": 1098,
+          "name": "SOUND45",
+          "description": "Sound system",
+          "group": "Information and communication",
+          "type": "OLD_ECU",
+          "variantCount": 4
+        },
+        {
+          "ecuId": 1099,
+          "name": "SOUND_204",
+          "description": "Sound system",
+          "group": "Information and communication",
+          "type": "OLD_ECU",
+          "variantCount": 6
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; the official scan probe got no answer (capture excerpt)"
+      },
+      "inOfficialCapture": true,
+      "officialScanProbe": {
+        "response": "no answer (zero-filled)",
+        "positive": false
+      },
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x692/0x492",
+      "txId": 1682,
+      "rxId": 1170,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "SPC_MFA"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 1109,
+          "name": "SPC_MFA",
+          "description": "Suspension control module",
+          "group": "Chassis",
+          "type": "REGULAR_ECU",
+          "variantCount": 8
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; the official scan probe got no answer (capture excerpt)"
+      },
+      "inOfficialCapture": true,
+      "officialScanProbe": {
+        "response": "no answer (zero-filled)",
+        "positive": false
+      },
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x693/0x4D2",
+      "txId": 1683,
+      "rxId": 1234,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "PTCM156"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 1020,
+          "name": "PTCM156",
+          "description": "Tailgate control unit",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 14
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; the official scan probe got no answer (capture excerpt)"
+      },
+      "inOfficialCapture": true,
+      "officialScanProbe": {
+        "response": "no answer (zero-filled)",
+        "positive": false
+      },
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x6A1/0x454",
+      "txId": 1697,
+      "rxId": 1108,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "TV221",
+        "TV45"
+      ],
+      "types": [
+        "OLD_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 1142,
+          "name": "TV221",
+          "description": "TV tuner",
+          "group": "Information and communication",
+          "type": "OLD_ECU",
+          "variantCount": 17
+        },
+        {
+          "ecuId": 1144,
+          "name": "TV45",
+          "description": "TV tuner",
+          "group": "Information and communication",
+          "type": "OLD_ECU",
+          "variantCount": 33
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x6A9/0x455",
+      "txId": 1705,
+      "rxId": 1109,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "DAB45",
+        "DAB_204",
+        "TB5DABS1"
+      ],
+      "types": [
+        "OLD_ECU",
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 736,
+          "name": "DAB45",
+          "description": "Digital audio broadcasting",
+          "group": "Information and communication",
+          "type": "OLD_ECU",
+          "variantCount": 7
+        },
+        {
+          "ecuId": 737,
+          "name": "DAB_204",
+          "description": "Digital audio broadcasting",
+          "group": "Information and communication",
+          "type": "OLD_ECU",
+          "variantCount": 7
+        },
+        {
+          "ecuId": 1118,
+          "name": "TB5DABS1",
+          "description": "Digital audio broadcasting",
+          "group": "Information and communication",
+          "type": "REGULAR_ECU",
+          "variantCount": 8
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x6AB/0x4D5",
+      "txId": 1707,
+      "rxId": 1237,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "IHTM166"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 906,
+          "name": "IHTM166",
+          "description": "Stationary heater control unit",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 11
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x6B1/0x456",
+      "txId": 1713,
+      "rxId": 1110,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "DRVKTPLS",
+        "UMI"
+      ],
+      "types": [
+        "REGULAR_ECU",
+        "OLD_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 763,
+          "name": "DRVKTPLS",
+          "description": "Drive kit module",
+          "group": "Drivetrain",
+          "type": "REGULAR_ECU",
+          "variantCount": 9
+        },
+        {
+          "ecuId": 1155,
+          "name": "UMI",
+          "description": "Navigation module",
+          "group": "Information and communication",
+          "type": "OLD_ECU",
+          "variantCount": 2
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x6B3/0x4D6",
+      "txId": 1715,
+      "rxId": 1238,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "TSSR176"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 1137,
+          "name": "TSSR176",
+          "description": "Sliding roof control module",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 9
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; the official scan probe got no answer (capture excerpt)"
+      },
+      "inOfficialCapture": true,
+      "officialScanProbe": {
+        "response": "no answer (zero-filled)",
+        "positive": false
+      },
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x6BA/0x497",
+      "txId": 1722,
+      "rxId": 1175,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "RBTMFL_204"
+      ],
+      "types": [
+        "OLD_ECU_MANSPEC"
+      ],
+      "records": [
+        {
+          "ecuId": 1036,
+          "name": "RBTMFL_204",
+          "description": "Seat belt tensioner module front left",
+          "group": "Seats and doors",
+          "type": "OLD_ECU_MANSPEC",
+          "variantCount": 23
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; the official scan probe got no answer (capture excerpt)"
+      },
+      "inOfficialCapture": true,
+      "officialScanProbe": {
+        "response": "no answer (zero-filled)",
+        "positive": false
+      },
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x6C1/0x458",
+      "txId": 1729,
+      "rxId": 1112,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "HUD_ZUB"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 876,
+          "name": "HUD_ZUB",
+          "description": "Head-up display",
+          "group": "Information and communication",
+          "type": "REGULAR_ECU",
+          "variantCount": 1
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x6C2/0x498",
+      "txId": 1730,
+      "rxId": 1176,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "RBTMFR_204"
+      ],
+      "types": [
+        "OLD_ECU_MANSPEC"
+      ],
+      "records": [
+        {
+          "ecuId": 1040,
+          "name": "RBTMFR_204",
+          "description": "Seat belt tensioner module front right",
+          "group": "Seats and doors",
+          "type": "OLD_ECU_MANSPEC",
+          "variantCount": 23
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; the official scan probe got no answer (capture excerpt)"
+      },
+      "inOfficialCapture": true,
+      "officialScanProbe": {
+        "response": "no answer (zero-filled)",
+        "positive": false
+      },
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x6C3/0x4D8",
+      "txId": 1731,
+      "rxId": 1240,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "SEATD166"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 1066,
+          "name": "SEATD166",
+          "description": "Seat adjustment module driver",
+          "group": "Seats and doors",
+          "type": "REGULAR_ECU",
+          "variantCount": 9
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; the official scan probe got no answer (capture excerpt)"
+      },
+      "inOfficialCapture": true,
+      "officialScanProbe": {
+        "response": "no answer (zero-filled)",
+        "positive": false
+      },
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x6C9/0x459",
+      "txId": 1737,
+      "rxId": 1113,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "SDAR221",
+        "TB5TVSDARSS1",
+        "TV5S1HD"
+      ],
+      "types": [
+        "OLD_ECU",
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 1064,
+          "name": "SDAR221",
+          "description": "Satellite digital audio radio",
+          "group": "Information and communication",
+          "type": "OLD_ECU",
+          "variantCount": 22
+        },
+        {
+          "ecuId": 1119,
+          "name": "TB5TVSDARSS1",
+          "description": "Tuner unit",
+          "group": "Information and communication",
+          "type": "REGULAR_ECU",
+          "variantCount": 42
+        },
+        {
+          "ecuId": 1202,
+          "name": "TV5S1HD",
+          "description": "Telematics / communication module",
+          "group": "Information and communication",
+          "type": "REGULAR_ECU",
+          "variantCount": 6
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; the official scan probe got no answer (capture excerpt)"
+      },
+      "inOfficialCapture": true,
+      "officialScanProbe": {
+        "response": "no answer (zero-filled)",
+        "positive": false
+      },
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x6CB/0x4D9",
+      "txId": 1739,
+      "rxId": 1241,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "SEATP166"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 1070,
+          "name": "SEATP166",
+          "description": "Seat adjustment module passenger",
+          "group": "Seats and doors",
+          "type": "REGULAR_ECU",
+          "variantCount": 9
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; the official scan probe got no answer (capture excerpt)"
+      },
+      "inOfficialCapture": true,
+      "officialScanProbe": {
+        "response": "no answer (zero-filled)",
+        "positive": false
+      },
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x6D1/0x45A",
+      "txId": 1745,
+      "rxId": 1114,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "UCI45",
+        "UCI_204"
+      ],
+      "types": [
+        "OLD_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 1152,
+          "name": "UCI45",
+          "description": "Media interface",
+          "group": "Information and communication",
+          "type": "OLD_ECU",
+          "variantCount": 8
+        },
+        {
+          "ecuId": 1153,
+          "name": "UCI_204",
+          "description": "Media interface",
+          "group": "Information and communication",
+          "type": "OLD_ECU",
+          "variantCount": 4
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x6D5/0x6B0",
+      "txId": 1749,
+      "rxId": 1712,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "IBS2G166"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 894,
+          "name": "IBS2G166",
+          "description": "Intelligent battery sensor",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 2
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x6EB/0x4DD",
+      "txId": 1771,
+      "rxId": 1245,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "TM166",
+        "TM166IBK"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 1125,
+          "name": "TM166",
+          "description": "Trailer module",
+          "group": "Driver assistance system",
+          "type": "REGULAR_ECU",
+          "variantCount": 6
+        },
+        {
+          "ecuId": 1126,
+          "name": "TM166IBK",
+          "description": "Trailer module",
+          "group": "Driver assistance system",
+          "type": "REGULAR_ECU",
+          "variantCount": 26
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; the official scan probe got no answer (capture excerpt)"
+      },
+      "inOfficialCapture": true,
+      "officialScanProbe": {
+        "response": "no answer (zero-filled)",
+        "positive": false
+      },
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x702/0x4A0",
+      "txId": 1794,
+      "rxId": 1184,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "LRR3",
+        "LRR3_463"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 940,
+          "name": "LRR3",
+          "description": "Distronic long-range radar",
+          "group": "Driver assistance system",
+          "type": "REGULAR_ECU",
+          "variantCount": 19
+        },
+        {
+          "ecuId": 941,
+          "name": "LRR3_463",
+          "description": "Distronic long-range radar",
+          "group": "Driver assistance system",
+          "type": "REGULAR_ECU",
+          "variantCount": 5
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x707/0x6FF",
+      "txId": 1799,
+      "rxId": 1791,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "TPSS"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 1135,
+          "name": "TPSS",
+          "description": "Tire pressure sensor system",
+          "group": "Chassis",
+          "type": "REGULAR_ECU",
+          "variantCount": 1
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; the official scan probe got no answer (capture excerpt)"
+      },
+      "inOfficialCapture": true,
+      "officialScanProbe": {
+        "response": "no answer (zero-filled)",
+        "positive": false
+      },
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x710/0x700",
+      "txId": 1808,
+      "rxId": 1792,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "TB5_TV_SDARS",
+        "TV5HD"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 1121,
+          "name": "TB5_TV_SDARS",
+          "description": "Tuner unit",
+          "group": "Information and communication",
+          "type": "REGULAR_ECU",
+          "variantCount": 42
+        },
+        {
+          "ecuId": 1201,
+          "name": "TV5HD",
+          "description": "Telematics / communication module",
+          "group": "Information and communication",
+          "type": "REGULAR_ECU",
+          "variantCount": 6
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; the official scan probe got no answer (capture excerpt)"
+      },
+      "inOfficialCapture": true,
+      "officialScanProbe": {
+        "response": "no answer (zero-filled)",
+        "positive": false
+      },
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x714/0x704",
+      "txId": 1812,
+      "rxId": 1796,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "TB5_DAB"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 1120,
+          "name": "TB5_DAB",
+          "description": "Digital audio broadcasting",
+          "group": "Information and communication",
+          "type": "REGULAR_ECU",
+          "variantCount": 8
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; the official scan probe got no answer (capture excerpt)"
+      },
+      "inOfficialCapture": true,
+      "officialScanProbe": {
+        "response": "no answer (zero-filled)",
+        "positive": false
+      },
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x733/0x4E6",
+      "txId": 1843,
+      "rxId": 1254,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "RVC166",
+        "RVC218"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 1047,
+          "name": "RVC166",
+          "description": "Rearview camera",
+          "group": "Driver assistance system",
+          "type": "REGULAR_ECU",
+          "variantCount": 19
+        },
+        {
+          "ecuId": 1049,
+          "name": "RVC218",
+          "description": "Rearview camera",
+          "group": "Driver assistance system",
+          "type": "REGULAR_ECU",
+          "variantCount": 16
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; the official scan probe got no answer (capture excerpt)"
+      },
+      "inOfficialCapture": true,
+      "officialScanProbe": {
+        "response": "no answer (zero-filled)",
+        "positive": false
+      },
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x73F/0x747",
+      "txId": 1855,
+      "rxId": 1863,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "OCM_172"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 993,
+          "name": "OCM_172",
+          "description": "Occupant classification module",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 13
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x74F/0x757",
+      "txId": 1871,
+      "rxId": 1879,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "ASBM_U",
+        "IBS166"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 675,
+          "name": "ASBM_U",
+          "description": "Lower control panel",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 4
+        },
+        {
+          "ecuId": 891,
+          "name": "IBS166",
+          "description": "Intelligent battery sensor",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 7
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x753/0x4EA",
+      "txId": 1875,
+      "rxId": 1258,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "DISPC_204",
+        "DSPC5S1"
+      ],
+      "types": [
+        "OLD_ECU",
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 740,
+          "name": "DISPC_204",
+          "description": "Audio/COMAND display",
+          "group": "Information and communication",
+          "type": "OLD_ECU",
+          "variantCount": 40
+        },
+        {
+          "ecuId": 787,
+          "name": "DSPC5S1",
+          "description": "Audio/COMAND display",
+          "group": "Information and communication",
+          "type": "REGULAR_ECU",
+          "variantCount": 12
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x77F/0x787",
+      "txId": 1919,
+      "rxId": 1927,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "EC166",
+        "GDO166",
+        "LRSM166",
+        "OHCM246",
+        "VCS166"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 793,
+          "name": "EC166",
+          "description": "Seat control module",
+          "group": "Seats and doors",
+          "type": "REGULAR_ECU",
+          "variantCount": 2
+        },
+        {
+          "ecuId": 850,
+          "name": "GDO166",
+          "description": "Garage door opener",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 3
+        },
+        {
+          "ecuId": 942,
+          "name": "LRSM166",
+          "description": "Long-range radar sensor module",
+          "group": "Driver assistance system",
+          "type": "REGULAR_ECU",
+          "variantCount": 4
+        },
+        {
+          "ecuId": 998,
+          "name": "OHCM246",
+          "description": "Overhead control panel",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 6
+        },
+        {
+          "ecuId": 1157,
+          "name": "VCS166",
+          "description": "Vehicle communication system",
+          "group": "Information and communication",
+          "type": "REGULAR_ECU",
+          "variantCount": 3
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x78F/0x797",
+      "txId": 1935,
+      "rxId": 1943,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "PSMD166",
+        "PSMP166"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 1015,
+          "name": "PSMD166",
+          "description": "Seat adjustment module driver",
+          "group": "Seats and doors",
+          "type": "REGULAR_ECU",
+          "variantCount": 1
+        },
+        {
+          "ecuId": 1017,
+          "name": "PSMP166",
+          "description": "Seat adjustment module passenger",
+          "group": "Seats and doors",
+          "type": "REGULAR_ECU",
+          "variantCount": 1
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; the official scan probe got no answer (capture excerpt)"
+      },
+      "inOfficialCapture": true,
+      "officialScanProbe": {
+        "response": "no answer (zero-filled)",
+        "positive": false
+      },
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x792/0x4B2",
+      "txId": 1938,
+      "rxId": 1202,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "DSI"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 767,
+          "name": "DSI",
+          "description": "Direct select interface",
+          "group": "Drivetrain",
+          "type": "REGULAR_ECU",
+          "variantCount": 6
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x79A/0x4B3",
+      "txId": 1946,
+      "rxId": 1203,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "AWD_MFA"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 679,
+          "name": "AWD_MFA",
+          "description": "All-wheel drive control unit",
+          "group": "Drivetrain",
+          "type": "REGULAR_ECU",
+          "variantCount": 8
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x79F/0x7A7",
+      "txId": 1951,
+      "rxId": 1959,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "SWSP166"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 1116,
+          "name": "SWSP166",
+          "description": "Steering wheel electronics",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 1
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; the official scan probe got no answer (capture excerpt)"
+      },
+      "inOfficialCapture": true,
+      "officialScanProbe": {
+        "response": "no answer (zero-filled)",
+        "positive": false
+      },
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x7AF/0x7B7",
+      "txId": 1967,
+      "rxId": 1975,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "SIREN166",
+        "SIREN222STAR1"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 1088,
+          "name": "SIREN166",
+          "description": "Alarm siren",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 4
+        },
+        {
+          "ecuId": 1091,
+          "name": "SIREN222STAR1",
+          "description": "Alarm siren",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 4
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; the official scan probe got no answer (capture excerpt)"
+      },
+      "inOfficialCapture": true,
+      "officialScanProbe": {
+        "response": "no answer (zero-filled)",
+        "positive": false
+      },
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x7BB/0x4F7",
+      "txId": 1979,
+      "rxId": 1271,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "CPF117"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 702,
+          "name": "CPF117",
+          "description": "Camera cover module",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 6
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x7BF/0x7C7",
+      "txId": 1983,
+      "rxId": 1991,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "LAMSL",
+        "LCU_FL212",
+        "XCUL166"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 926,
+          "name": "LAMSL",
+          "description": "Ambient lighting module left",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 5
+        },
+        {
+          "ecuId": 928,
+          "name": "LCU_FL212",
+          "description": "Left LED control unit",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 8
+        },
+        {
+          "ecuId": 1172,
+          "name": "XCUL166",
+          "description": "Left seat control module",
+          "group": "Seats and doors",
+          "type": "REGULAR_ECU",
+          "variantCount": 2
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x7CF/0x7D7",
+      "txId": 1999,
+      "rxId": 2007,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "LAMSR",
+        "LCU_FR212",
+        "XCUR166"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 927,
+          "name": "LAMSR",
+          "description": "Ambient lighting module",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 5
+        },
+        {
+          "ecuId": 932,
+          "name": "LCU_FR212",
+          "description": "Right LED control unit",
+          "group": "Body",
+          "type": "REGULAR_ECU",
+          "variantCount": 8
+        },
+        {
+          "ecuId": 1173,
+          "name": "XCUR166",
+          "description": "Right seat control module",
+          "group": "Seats and doors",
+          "type": "REGULAR_ECU",
+          "variantCount": 2
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x7E1/0x7E9",
+      "txId": 2017,
+      "rxId": 2025,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "DCT"
+      ],
+      "types": [
+        "OLD_ECU_MANSPEC"
+      ],
+      "records": [
+        {
+          "ecuId": 739,
+          "name": "DCT",
+          "description": "Transmission control unit",
+          "group": "Drivetrain",
+          "type": "OLD_ECU_MANSPEC",
+          "variantCount": 30
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x7E3/0x7EB",
+      "txId": 2019,
+      "rxId": 2027,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "FSCM_EC"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 841,
+          "name": "FSCM_EC",
+          "description": "Fuel pump control module",
+          "group": "Drivetrain",
+          "type": "REGULAR_ECU",
+          "variantCount": 22
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x7E4/0x7EC",
+      "txId": 2020,
+      "rxId": 2028,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "SCRCM"
+      ],
+      "types": [
+        "OLD_ECU_MANSPEC"
+      ],
+      "records": [
+        {
+          "ecuId": 1061,
+          "name": "SCRCM",
+          "description": "Selective catalytic reduction",
+          "group": "Drivetrain",
+          "type": "OLD_ECU_MANSPEC",
+          "variantCount": 71
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; the official scan probe got no answer (capture excerpt)"
+      },
+      "inOfficialCapture": true,
+      "officialScanProbe": {
+        "response": "no answer (zero-filled)",
+        "positive": false
+      },
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    },
+    {
+      "key": "0x7E5/0x7ED",
+      "txId": 2021,
+      "rxId": 2029,
+      "addressing": "CAN 11-bit physical, ISO-TP in dongle (no logical/gateway address in catalog)",
+      "names": [
+        "CEPC",
+        "CEPC_MFA"
+      ],
+      "types": [
+        "REGULAR_ECU"
+      ],
+      "records": [
+        {
+          "ecuId": 690,
+          "name": "CEPC",
+          "description": "Powertrain control module",
+          "group": "Drivetrain",
+          "type": "REGULAR_ECU",
+          "variantCount": 151
+        },
+        {
+          "ecuId": 692,
+          "name": "CEPC_MFA",
+          "description": "Powertrain control module",
+          "group": "Drivetrain",
+          "type": "REGULAR_ECU",
+          "variantCount": 33
+        }
+      ],
+      "catalogLevel": "DERIVED_FROM_MBITO_DATABASE",
+      "currentVehicle": null,
+      "onThisCar": {
+        "level": "UNKNOWN",
+        "detail": "Catalog only; never observed on this car"
+      },
+      "inOfficialCapture": false,
+      "officialScanProbe": null,
+      "sessions": [],
+      "knownRequests": [],
+      "warnings": []
+    }
+  ]
+}

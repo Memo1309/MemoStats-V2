@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "memostats-v2",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["--prefix", "memostats-v2", "run", "dev", "--", "--port", "5174", "--strictPort"],
+      "port": 5174
+    }
+  ]
+}

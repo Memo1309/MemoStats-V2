@@ -1,0 +1,84 @@
+{
+  "_about": "Every real observation MemoStats V2 knows about this W176, with its source. Hand-maintained; the catalogue builder (scripts/build-ecu-catalogue.ts) merges it with the raw MBito exports in sources/. Never add a row without a source.",
+  "vehicle": {
+    "model": "Mercedes-Benz A-Class W176 A200 2017, M270, manual",
+    "mbitoCarId": 43,
+    "mbitoUserVehicleId": 80903,
+    "dongle": { "name": "V2407127C3", "firmware": "v1.31", "hardware": "ESP32-C3 (firmware dump: MemoStats/../mbito dongle/mbito_full_backup_1.bin)" }
+  },
+  "officialCaptureSession": {
+    "id": "capture-20260917-222558",
+    "what": "Passive BLE capture of the official MBito app running Scan Vehicle on this car, recorded by old MemoStats. Only dongle→phone notifications were visible; the official TX bytes were not captured.",
+    "source": "MemoStats/web/src/ecuInventory.selfcheck.ts (31-packet excerpt; the full session lived in Bluefy IndexedDB and is not in any file)",
+    "execUdsFrames": [
+      { "rxHex": "C0 01 29 00 00 00 FE 8A 07 00 00 B1 04 00 00 58 02 00 00 06 00 03 00 14 00 62 F1 8C 33 30 34 30 30 37 33 31 37 31 35 37 30 34 34 33 32", "udsRequest": "22 F1 8C" },
+      { "rxHex": "C0 01 22 00 00 00 FE 8A 07 00 00 B1 04 00 00 58 02 00 00 06 00 03 00 0D 00 62 F1 11 30 30 30 39 30 31 37 36 30 32", "udsRequest": "22 F1 11" },
+      { "rxHex": "C0 01 22 00 00 00 FE 8A 07 00 00 B1 04 00 00 58 02 00 00 06 00 03 00 0D 00 62 F1 21 30 30 30 39 30 32 39 35 33 37", "udsRequest": "22 F1 21" },
+      { "rxHex": "C0 01 1C 00 00 00 00 22 06 00 00 84 04 00 00 C8 00 00 00 07 00 03 00 07 00 62 F1 00 00 05 08 03", "udsRequest": "22 F1 00" },
+      { "rxHex": "C0 01 21 00 00 00 FE 22 06 00 00 84 04 00 00 58 02 00 00 06 00 03 00 0C 00 62 F1 8C 31 37 31 36 34 34 33 31 30", "udsRequest": "22 F1 8C" },
+      { "rxHex": "C0 01 22 00 00 00 FE 22 06 00 00 84 04 00 00 58 02 00 00 06 00 03 00 0D 00 62 F1 11 32 34 36 39 30 31 36 30 30 36", "udsRequest": "22 F1 11" },
+      { "rxHex": "C0 01 22 00 00 00 FE 22 06 00 00 84 04 00 00 58 02 00 00 06 00 03 00 0D 00 62 F1 21 32 34 36 39 30 32 36 37 30 32", "udsRequest": "22 F1 21" },
+      { "rxHex": "C0 01 1C 00 00 00 00 42 06 00 00 88 04 00 00 C8 00 00 00 07 00 03 00 07 00 62 F1 00 00 30 07 03", "udsRequest": "22 F1 00" },
+      { "rxHex": "C0 01 2B 00 00 00 FE 42 06 00 00 88 04 00 00 58 02 00 00 06 00 03 00 16 00 62 F1 8C 30 39 32 38 30 31 34 34 31 37 30 30 32 36 32 30 34 33 35", "udsRequest": "22 F1 8C" },
+      { "rxHex": "C0 01 22 00 00 00 FE 42 06 00 00 88 04 00 00 58 02 00 00 06 00 03 00 0D 00 62 F1 11 30 30 30 39 30 31 37 38 30 33", "udsRequest": "22 F1 11" },
+      { "rxHex": "C0 01 22 00 00 00 FE 42 06 00 00 88 04 00 00 58 02 00 00 06 00 03 00 0D 00 62 F1 21 30 30 30 39 30 32 30 34 31 37", "udsRequest": "22 F1 21" }
+    ],
+    "scanProbeFrames": [
+      "B3 02 20 00 00 01 02 00 8F 07 00 00 02 10 03 55 55 55 55 55 01 01 FA 00 97 07 00 00 00 00 00 00 00 00 00 00",
+      "B3 02 20 00 00 01 02 00 93 06 00 00 02 10 03 55 55 55 55 55 01 01 FA 00 D2 04 00 00 00 00 00 00 00 00 00 00",
+      "B3 02 20 00 00 01 02 00 BA 06 00 00 02 10 03 55 55 55 55 55 01 01 FA 00 97 04 00 00 00 00 00 00 00 00 00 00",
+      "B3 02 20 00 00 01 02 00 C2 06 00 00 02 10 03 55 55 55 55 55 01 01 FA 00 98 04 00 00 00 00 00 00 00 00 00 00",
+      "B3 02 20 00 00 01 02 00 33 07 00 00 02 10 03 55 55 55 55 55 01 01 FA 00 E6 04 00 00 00 00 00 00 00 00 00 00",
+      "B3 02 20 00 00 01 02 00 22 06 00 00 02 10 03 55 55 55 55 55 01 01 FA 00 84 04 00 00 06 50 03 00 14 00 C8 32",
+      "B3 02 20 00 00 01 02 00 E4 07 00 00 02 10 03 55 55 55 55 55 01 01 FA 00 EC 07 00 00 00 00 00 00 00 00 00 00",
+      "B3 02 20 00 00 01 02 00 C9 06 00 00 02 10 03 55 55 55 55 55 01 01 FA 00 59 04 00 00 00 00 00 00 00 00 00 00",
+      "B3 02 20 00 00 01 02 00 C3 06 00 00 02 10 03 55 55 55 55 55 01 01 FA 00 D8 04 00 00 00 00 00 00 00 00 00 00",
+      "B3 02 20 00 00 01 02 00 CB 06 00 00 02 10 03 55 55 55 55 55 01 01 FA 00 D9 04 00 00 00 00 00 00 00 00 00 00",
+      "B3 02 20 00 00 01 02 00 AF 07 00 00 02 10 03 55 55 55 55 55 01 01 FA 00 B7 07 00 00 00 00 00 00 00 00 00 00",
+      "B3 02 20 00 00 01 02 00 91 06 00 00 02 10 03 55 55 55 55 55 01 01 FA 00 52 04 00 00 00 00 00 00 00 00 00 00",
+      "B3 02 20 00 00 01 02 00 92 06 00 00 02 10 03 55 55 55 55 55 01 01 FA 00 92 04 00 00 00 00 00 00 00 00 00 00",
+      "B3 02 20 00 00 01 02 00 9F 07 00 00 02 10 03 55 55 55 55 55 01 01 FA 00 A7 07 00 00 00 00 00 00 00 00 00 00",
+      "B3 02 20 00 00 01 02 00 14 07 00 00 02 10 03 55 55 55 55 55 01 01 FA 00 04 07 00 00 00 00 00 00 00 00 00 00",
+      "B3 02 20 00 00 01 02 00 10 07 00 00 02 10 03 55 55 55 55 55 01 01 FA 00 00 07 00 00 00 00 00 00 00 00 00 00",
+      "B3 02 20 00 00 01 02 00 EB 06 00 00 02 10 03 55 55 55 55 55 01 01 FA 00 DD 04 00 00 00 00 00 00 00 00 00 00",
+      "B3 02 20 00 00 01 02 00 42 06 00 00 02 10 03 55 55 55 55 55 01 01 FA 00 88 04 00 00 06 50 03 00 14 00 C8 37",
+      "B3 02 20 00 00 01 02 00 07 07 00 00 02 10 03 55 55 55 55 55 01 01 FA 00 FF 06 00 00 00 00 00 00 00 00 00 00",
+      "B3 02 20 00 00 01 02 00 B3 06 00 00 02 10 03 55 55 55 55 55 01 01 FA 00 D6 04 00 00 00 00 00 00 00 00 00 00"
+    ]
+  },
+  "officialScanResult": {
+    "date": "2026-09-17",
+    "detected": 22,
+    "expectedInMbitoDatabase": 23,
+    "notDetected": ["CBCBOLERO"],
+    "source": "User reports: 2026-09-17 ('The official MBito scan detected 22 ECUs', master inventory of 22 CAN pairs with F111 values) and 2026-09-28 (CBCBOLERO was the one that did not respond). No raw frames except the capture excerpt above.",
+    "f111Reported": {
+      "MED40": "2709011700", "CTRLC5S1": "2469010706", "DMFL166": "1669013701", "DMFR166": "1669013901",
+      "EZS166": "2469055003", "EPKB166": "2469014406", "FCW246": "0009018504", "FSCM212": "0009014000",
+      "HLI_FL176": "1769017402", "HLI_FR176": "1769017402", "HU5S1": "2469012507", "HVAC246": "2469013106",
+      "IC172": "1769018902", "KG212M": "2129010107", "SMPC212": "2079012900", "ORC166": "1179017201",
+      "PARK117": "0009017602", "TPM_172": "0009017803"
+    }
+  },
+  "realCarObservations": [
+    { "ecu": "MED40", "txId": "0x7E0", "rxId": "0x7E8", "request": "22 F1 00", "response": "62 F1 00 02 28 57 03", "rawTransport": null, "who": "official MBito scan", "date": "2026-09-17", "source": "User report 2026-09-17T22:48 (old session transcript)" },
+    { "ecu": "MED40", "txId": "0x7E0", "rxId": "0x7E8", "request": "19 01 0D", "response": "59 01 FF 01 00 03", "rawTransport": null, "who": "official MBito app", "date": "2026-09-18", "source": "User report 2026-09-18T13:05 (old session transcript)" },
+    { "ecu": "MED40", "txId": "0x7E0", "rxId": "0x7E8", "request": "19 02 0D", "response": "59 02 FF 05 2E 71 64 D4 57 00 64 06 DA 00 64", "rawTransport": null, "who": "official MBito app", "date": "2026-09-18", "source": "User report 2026-09-18T13:05; master spec §32" },
+    { "ecu": "MED40", "txId": "0x7E0", "rxId": "0x7E8", "request": "01 0D", "response": "41 0D 1B", "rawTransport": null, "who": "old MemoStats (EXEC_UDS 40 79 …, engine running)", "date": "2026-09-17", "source": "User report 2026-09-17T16:09 + old project memory project_mbito_obd.md" },
+    { "ecu": "CBCBOLERO", "txId": "0x6F3", "rxId": "0x4DE", "request": "22 F1 00", "response": "62 F1 00 02 E6 08 01", "rawTransport": "0xFE", "who": "unspecified real session", "date": null, "source": "Master spec §10/§58 (user)" },
+    { "ecu": "CBCBOLERO", "txId": "0x6F3", "rxId": "0x4DE", "request": "19 02 0D", "response": "DTC 25 56 7B status 2B (P25567B)", "rawTransport": null, "who": "unspecified real session", "date": "2026-09-18", "source": "User report 2026-09-18T13:05" },
+    { "ecu": "DMFL166", "txId": "0x703", "rxId": "0x4E0", "request": "22 F1 00", "response": "62 F1 00 00 04 0C 03", "rawTransport": null, "who": "official MBito scan", "date": "2026-09-17", "source": "User report 2026-09-17T22:48" },
+    { "ecu": "MED40", "txId": "0x7E0", "rxId": "0x7E8", "request": "22 F1 00", "response": null, "rawTransport": "0xFD", "who": "MemoStats V2 0.1.0 (timeout 600, exp_len 7, request_nr 1)", "date": "2026-09-28", "source": "V2 vehicle test 23:38; dongle voltage 12.431 V (engine not running; ignition state not recorded). RX: C0 01 15 00 00 01 FD E0 07 00 00 E8 07 00 00 58 02 00 00 07 00 03 00 00 00" }
+  ],
+  "predefinedCommands": {
+    "source": "output.js PredefinedCommand (~L1632048); command bytes decoded from the APK bundle array buffer (same source hash). Object value buffers (timeouts/ids) did not decode reliably and are not used.",
+    "readOnly": {
+      "checkECUVariant": "22 F1 00", "getSerialNumber": "22 F1 8C", "getHardwareNumber": "22 F1 11", "getSoftwareNumber": "22 F1 21",
+      "getDTCcount": "19 01 0D", "getOriginalVinCode": "22 F1 90", "getCurrentVinCode": "22 F1 A0", "getVinCode164": "22 00 05",
+      "checkECUVariant2": "1A 87", "checkECUVariant3": "1A 86", "getOldHardwareNumber": "1A 86", "getOldSoftwareNumber": "1A 9D", "getVinCodeOldECU": "1A 90", "getVinCode164Old": "21 05",
+      "getVoltage": "01 42"
+    },
+    "sessionControl": { "checkECU": "10 03", "checkECU2": "10 92", "testerRemove": "10 01", "startDevicePing": "3E 00", "startOldECUPing": "3E 01" },
+    "forbidden": { "hardReset": "11 01", "softReset": "11 03", "getECUSeed": "27 0B", "writeECUKey": "27 0C" }
+  }
+}

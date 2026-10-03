@@ -1,0 +1,655 @@
+[
+ {
+  "txId": 1116,
+  "rxId": 1117,
+  "names": [
+   "ECALL_RUS"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Information and communication"
+  ]
+ },
+ {
+  "txId": 1578,
+  "rxId": 1157,
+  "names": [
+   "DRVU"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Drivetrain"
+  ]
+ },
+ {
+  "txId": 1587,
+  "rxId": 1222,
+  "names": [
+   "NAVBOX45"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Information and communication"
+  ]
+ },
+ {
+  "txId": 1592,
+  "rxId": 1464,
+  "names": [
+   "HU5",
+   "HU5_ENTRY"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Information and communication"
+  ]
+ },
+ {
+  "txId": 1595,
+  "rxId": 1223,
+  "names": [
+   "VTA166"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Body"
+  ]
+ },
+ {
+  "txId": 1650,
+  "rxId": 1166,
+  "names": [
+   "IBSM212_R1",
+   "IBSM3G_R1"
+  ],
+  "types": [
+   "OLD_ECU_MANSPEC",
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Driver assistance system"
+  ]
+ },
+ {
+  "txId": 1658,
+  "rxId": 1167,
+  "names": [
+   "IBSM212_R4",
+   "IBSM3G_R4"
+  ],
+  "types": [
+   "OLD_ECU_MANSPEC",
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Driver assistance system"
+  ]
+ },
+ {
+  "txId": 1667,
+  "rxId": 1232,
+  "names": [
+   "MPM"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Body"
+  ]
+ },
+ {
+  "txId": 1674,
+  "rxId": 1169,
+  "names": [
+   "ESS292"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Body"
+  ]
+ },
+ {
+  "txId": 1681,
+  "rxId": 1106,
+  "names": [
+   "SND5S1",
+   "SOUND45",
+   "SOUND_204"
+  ],
+  "types": [
+   "REGULAR_ECU",
+   "OLD_ECU"
+  ],
+  "groups": [
+   "Information and communication"
+  ]
+ },
+ {
+  "txId": 1682,
+  "rxId": 1170,
+  "names": [
+   "SPC_MFA"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Chassis"
+  ]
+ },
+ {
+  "txId": 1683,
+  "rxId": 1234,
+  "names": [
+   "PTCM156"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Body"
+  ]
+ },
+ {
+  "txId": 1697,
+  "rxId": 1108,
+  "names": [
+   "TV221",
+   "TV45"
+  ],
+  "types": [
+   "OLD_ECU"
+  ],
+  "groups": [
+   "Information and communication"
+  ]
+ },
+ {
+  "txId": 1705,
+  "rxId": 1109,
+  "names": [
+   "DAB45",
+   "DAB_204",
+   "TB5DABS1"
+  ],
+  "types": [
+   "OLD_ECU",
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Information and communication"
+  ]
+ },
+ {
+  "txId": 1707,
+  "rxId": 1237,
+  "names": [
+   "IHTM166"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Body"
+  ]
+ },
+ {
+  "txId": 1713,
+  "rxId": 1110,
+  "names": [
+   "DRVKTPLS",
+   "UMI"
+  ],
+  "types": [
+   "REGULAR_ECU",
+   "OLD_ECU"
+  ],
+  "groups": [
+   "Drivetrain",
+   "Information and communication"
+  ]
+ },
+ {
+  "txId": 1715,
+  "rxId": 1238,
+  "names": [
+   "TSSR176"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Body"
+  ]
+ },
+ {
+  "txId": 1722,
+  "rxId": 1175,
+  "names": [
+   "RBTMFL_204"
+  ],
+  "types": [
+   "OLD_ECU_MANSPEC"
+  ],
+  "groups": [
+   "Seats and doors"
+  ]
+ },
+ {
+  "txId": 1729,
+  "rxId": 1112,
+  "names": [
+   "HUD_ZUB"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Information and communication"
+  ]
+ },
+ {
+  "txId": 1730,
+  "rxId": 1176,
+  "names": [
+   "RBTMFR_204"
+  ],
+  "types": [
+   "OLD_ECU_MANSPEC"
+  ],
+  "groups": [
+   "Seats and doors"
+  ]
+ },
+ {
+  "txId": 1731,
+  "rxId": 1240,
+  "names": [
+   "SEATD166"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Seats and doors"
+  ]
+ },
+ {
+  "txId": 1737,
+  "rxId": 1113,
+  "names": [
+   "SDAR221",
+   "TB5TVSDARSS1",
+   "TV5S1HD"
+  ],
+  "types": [
+   "OLD_ECU",
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Information and communication"
+  ]
+ },
+ {
+  "txId": 1739,
+  "rxId": 1241,
+  "names": [
+   "SEATP166"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Seats and doors"
+  ]
+ },
+ {
+  "txId": 1745,
+  "rxId": 1114,
+  "names": [
+   "UCI45",
+   "UCI_204"
+  ],
+  "types": [
+   "OLD_ECU"
+  ],
+  "groups": [
+   "Information and communication"
+  ]
+ },
+ {
+  "txId": 1749,
+  "rxId": 1712,
+  "names": [
+   "IBS2G166"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Body"
+  ]
+ },
+ {
+  "txId": 1771,
+  "rxId": 1245,
+  "names": [
+   "TM166",
+   "TM166IBK"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Driver assistance system"
+  ]
+ },
+ {
+  "txId": 1794,
+  "rxId": 1184,
+  "names": [
+   "LRR3",
+   "LRR3_463"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Driver assistance system"
+  ]
+ },
+ {
+  "txId": 1799,
+  "rxId": 1791,
+  "names": [
+   "TPSS"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Chassis"
+  ]
+ },
+ {
+  "txId": 1808,
+  "rxId": 1792,
+  "names": [
+   "TB5_TV_SDARS",
+   "TV5HD"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Information and communication"
+  ]
+ },
+ {
+  "txId": 1812,
+  "rxId": 1796,
+  "names": [
+   "TB5_DAB"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Information and communication"
+  ]
+ },
+ {
+  "txId": 1843,
+  "rxId": 1254,
+  "names": [
+   "RVC166",
+   "RVC218"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Driver assistance system"
+  ]
+ },
+ {
+  "txId": 1855,
+  "rxId": 1863,
+  "names": [
+   "OCM_172"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Body"
+  ]
+ },
+ {
+  "txId": 1871,
+  "rxId": 1879,
+  "names": [
+   "ASBM_U",
+   "IBS166"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Body"
+  ]
+ },
+ {
+  "txId": 1875,
+  "rxId": 1258,
+  "names": [
+   "DISPC_204",
+   "DSPC5S1"
+  ],
+  "types": [
+   "OLD_ECU",
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Information and communication"
+  ]
+ },
+ {
+  "txId": 1919,
+  "rxId": 1927,
+  "names": [
+   "EC166",
+   "GDO166",
+   "LRSM166",
+   "OHCM246",
+   "VCS166"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Seats and doors",
+   "Body",
+   "Driver assistance system",
+   "Information and communication"
+  ]
+ },
+ {
+  "txId": 1935,
+  "rxId": 1943,
+  "names": [
+   "PSMD166",
+   "PSMP166"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Seats and doors"
+  ]
+ },
+ {
+  "txId": 1938,
+  "rxId": 1202,
+  "names": [
+   "DSI"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Drivetrain"
+  ]
+ },
+ {
+  "txId": 1946,
+  "rxId": 1203,
+  "names": [
+   "AWD_MFA"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Drivetrain"
+  ]
+ },
+ {
+  "txId": 1951,
+  "rxId": 1959,
+  "names": [
+   "SWSP166"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Body"
+  ]
+ },
+ {
+  "txId": 1967,
+  "rxId": 1975,
+  "names": [
+   "SIREN166",
+   "SIREN222STAR1"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Body"
+  ]
+ },
+ {
+  "txId": 1979,
+  "rxId": 1271,
+  "names": [
+   "CPF117"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Body"
+  ]
+ },
+ {
+  "txId": 1983,
+  "rxId": 1991,
+  "names": [
+   "LAMSL",
+   "LCU_FL212",
+   "XCUL166"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Body",
+   "Seats and doors"
+  ]
+ },
+ {
+  "txId": 1999,
+  "rxId": 2007,
+  "names": [
+   "LAMSR",
+   "LCU_FR212",
+   "XCUR166"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Body",
+   "Seats and doors"
+  ]
+ },
+ {
+  "txId": 2017,
+  "rxId": 2025,
+  "names": [
+   "DCT"
+  ],
+  "types": [
+   "OLD_ECU_MANSPEC"
+  ],
+  "groups": [
+   "Drivetrain"
+  ]
+ },
+ {
+  "txId": 2019,
+  "rxId": 2027,
+  "names": [
+   "FSCM_EC"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Drivetrain"
+  ]
+ },
+ {
+  "txId": 2020,
+  "rxId": 2028,
+  "names": [
+   "SCRCM"
+  ],
+  "types": [
+   "OLD_ECU_MANSPEC"
+  ],
+  "groups": [
+   "Drivetrain"
+  ]
+ },
+ {
+  "txId": 2021,
+  "rxId": 2029,
+  "names": [
+   "CEPC",
+   "CEPC_MFA"
+  ],
+  "types": [
+   "REGULAR_ECU"
+  ],
+  "groups": [
+   "Drivetrain"
+  ]
+ }
+]
