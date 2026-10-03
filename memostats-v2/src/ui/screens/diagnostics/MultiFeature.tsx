@@ -1,8 +1,9 @@
 import { useMemo, useState } from 'react';
 import { type ResolvedWorkflow, type WorkflowResult, type WorkflowStepResult, resolveWorkflow } from '../../../coding/multiFeature';
-import { runCodingWorkflow } from '../../../state/actions';
+import { connectDongle, runCodingWorkflow } from '../../../state/actions';
 import { parseCanId } from '../../../w176/catalog';
 import type { W176Db } from '../../../w176/types';
+import { useAppState } from '../../../state/appState';
 import { useCanTransmit } from '../../hooks';
 import { ActionButton, SectionHeader, StatusBadge, TechnicalRow } from '../../components/primitives';
 
@@ -27,6 +28,7 @@ export function MultiFeaturePanel({ db, confirmedPairs, onChanged }: { db: W176D
 }
 
 function WorkflowRow({ db, featureId, name, optionKeys, onChanged }: { db: W176Db; featureId: number; name: string; optionKeys: string[]; onChanged: () => void }) {
+  const { connection } = useAppState();
   const canTx = useCanTransmit();
   const [optionKey, setOptionKey] = useState<string>(optionKeys[0] ?? '');
   const [busy, setBusy] = useState(false);
@@ -57,7 +59,9 @@ function WorkflowRow({ db, featureId, name, optionKeys, onChanged }: { db: W176D
             <p className="item__title">{name}</p>
             <p className="item__sub">{resolved ? `${resolved.ecus.map(e => e.ecuName).join(' + ')} · ${resolved.steps.length} pași` : 'workflow indisponibil'}</p>
           </div>
-          <StatusBadge tone={resolved?.writable ? 'ok' : 'warn'}>{resolved?.writable ? 'Disponibil' : 'Blocat'}</StatusBadge>
+          <StatusBadge tone={!resolved?.writable ? 'warn' : canTx ? 'ok' : connection === 'connected' ? 'warn' : 'muted'}>
+            {!resolved?.writable ? 'Blocat' : canTx ? 'Disponibil' : connection === 'connected' ? 'Captură activă' : 'Necesită conexiune'}
+          </StatusBadge>
         </div>
       </summary>
       <div className="rows">
@@ -68,7 +72,20 @@ function WorkflowRow({ db, featureId, name, optionKeys, onChanged }: { db: W176D
           </select>
         </label>
         {resolved && !resolved.writable && <p className="small text--warn">{resolved.blockedReason ?? 'Un pas necesită SecurityAccess sau o secvență neimplementată.'}</p>}
-        {resolved?.writable && <ActionButton onClick={() => void run()} busy={busy} disabled={!canTx}>EXECUTĂ ({resolved.steps.length} pași)</ActionButton>}
+        {resolved?.writable && connection !== 'connected' && (
+          <>
+            <p className="small text--warn">MBito nu este conectat. Reconectează adaptorul pentru a executa workflow-ul.</p>
+            <ActionButton onClick={() => void connectDongle()} busy={connection === 'connecting'}>
+              {connection === 'lost' ? 'RECONECTEAZĂ MBITO' : 'CONECTEAZĂ MBITO'}
+            </ActionButton>
+          </>
+        )}
+        {resolved?.writable && connection === 'connected' && !canTx && (
+          <p className="small text--warn">Captura pasivă este activă. Oprește captura înainte de coding.</p>
+        )}
+        {resolved?.writable && connection === 'connected' && (
+          <ActionButton onClick={() => void run()} busy={busy} disabled={!canTx}>EXECUTĂ ({resolved.steps.length} pași)</ActionButton>
+        )}
         {steps.length > 0 && (
           <div className="rows">
             {steps.map((s, i) => <TechnicalRow key={i} label={`#${s.order} ${s.ecuName} ${s.kind}`} value={s.detail} tone={s.ok ? 'ok' : 'error'} />)}
