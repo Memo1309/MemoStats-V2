@@ -28,6 +28,26 @@ const CODING_TIMEOUT_MS = 2000;
 
 export class CodingError extends Error {}
 
+/** Enter UDS extended diagnostic session (10 03) before a standalone coding write/restore.
+ * Workflows that already contain their own 10 03 step keep using that metadata-driven sequence. */
+export async function enterExtendedSession(client: MbitoClient, target: CodingTarget, signal?: AbortSignal): Promise<void> {
+  const result = await execUds(client, {
+    txId: target.txId,
+    rxId: target.rxId,
+    body: Uint8Array.of(0x10, 0x03),
+    timeoutMs: CODING_TIMEOUT_MS,
+    delayAfterMs: 0,
+    expectedResponseLength: 2,
+  }, signal);
+  const uds = result.final?.udsBody;
+  if (result.semantic === 'NEGATIVE_RESPONSE') {
+    throw new CodingError(`ECU a refuzat sesiunea extinsă 10 03 (NRC 0x${(result.nrc ?? 0).toString(16).padStart(2, '0')})`);
+  }
+  if (result.semantic !== 'POSITIVE_RESPONSE' || !uds || uds[0] !== 0x50 || uds[1] !== 0x03) {
+    throw new CodingError('ECU nu a confirmat sesiunea extinsă 10 03');
+  }
+}
+
 /** Sends `22 <DID>` and returns the exact coding block, or throws a readable error. */
 export async function readCodingBlock(client: MbitoClient, target: CodingTarget, section: CodingSectionRef, signal?: AbortSignal): Promise<Bytes> {
   const body = fromHex(section.readHex);

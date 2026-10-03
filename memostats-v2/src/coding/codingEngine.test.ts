@@ -4,7 +4,7 @@ import { fromHex, toHex } from '../core/bytes';
 import { MbitoClient } from '../core/mbito/mbitoClient';
 import { FakeTransport } from '../testing/fakeDongle';
 import type { CodingFeatureModel } from './codingModel';
-import { CodingError, type CodingTarget, buildProposal, commitWrite, decode, readCodingBlock } from './codingEngine';
+import { CodingError, type CodingTarget, buildProposal, commitWrite, decode, enterExtendedSession, readCodingBlock } from './codingEngine';
 
 const IC172: CodingTarget = { ecuId: 901, ecuName: 'IC172', variantId: 11497, variantName: 'IC_MFA_AeJ17', txId: 0x60a, rxId: 0x481, hardwareNumber: '2469011497', softwareNumber: null };
 
@@ -27,7 +27,8 @@ function ecuHoldingBlock(initial: string, opts: { acceptWrite?: boolean; readbac
   transport.respond = tx => {
     const service = tx[25];
     const did = toHex(tx.subarray(26, 28)).replace(' ', '');
-    if (service === 0x22) transport.emit(reply(tx, `62 ${did.slice(0, 2)} ${did.slice(2)} ${toHex(opts.readbackHex ? fromHex(opts.readbackHex) : block)}`));
+    if (service === 0x10) transport.emit(reply(tx, '50 03'));
+    else if (service === 0x22) transport.emit(reply(tx, `62 ${did.slice(0, 2)} ${did.slice(2)} ${toHex(opts.readbackHex ? fromHex(opts.readbackHex) : block)}`));
     else if (service === 0x2e) {
       if (opts.acceptWrite !== false) block = new Uint8Array(tx.slice(28));
       transport.emit(reply(tx, `6E ${did.slice(0, 2)} ${did.slice(2)}`));
@@ -61,6 +62,20 @@ describe('coding engine — read / decode / proposal', () => {
     const proposal = buildProposal(block, nn(TEMP.options[1])); // °F
     expect(toHex(proposal.after)).toBe('80 00 00 00 00 00');
     expect(proposal.changedBytes).toEqual([0]);
+  });
+});
+
+describe('coding engine — session preflight', () => {
+  it('accepts extended diagnostic session only after 50 03', async () => {
+    const ecu = ecuHoldingBlock('00 00 00 00 00 00');
+    await expect(enterExtendedSession(ecu.client, IC172)).resolves.toBeUndefined();
+  });
+
+  it('rejects a non-positive 10 03 response', async () => {
+    const transport = new FakeTransport();
+    transport.respond = tx => transport.emit(reply(tx, '7F 10 22'));
+    const client = new MbitoClient(transport);
+    await expect(enterExtendedSession(client, IC172)).rejects.toBeInstanceOf(CodingError);
   });
 });
 
