@@ -90,11 +90,14 @@ describe('coding engine — access-0 write with read-back verification', () => {
     expect(result.backup).toMatchObject({ status: 'VERIFIED', originalBytes: '00 00 00 00 00 00', proposedBytes: '80 00 00 00 00 00', verifiedBytes: '80 00 00 00 00 00' });
   });
 
-  it('uses a longer dongle timeout for 2E coding writes than for reads', async () => {
+  it('uses MBito WriteV2 request_type=1 and the longer timeout for 2E coding writes', async () => {
     const ecu = ecuHoldingBlock('00 00 00 00 00 00');
     const block = await readCodingBlock(ecu.client, IC172, TEMP.section);
     await commitWrite(ecu.client, IC172, TEMP, buildProposal(block, nn(TEMP.options[1])));
+    const readTx = nn(ecu.transport.written.find(tx => tx[25] === 0x22));
     const writeTx = nn(ecu.transport.written.find(tx => tx[25] === 0x2e));
+    expect(readTx[4]).toBe(0x00);
+    expect(writeTx[4]).toBe(0x01);
     expect(new DataView(writeTx.buffer, writeTx.byteOffset, writeTx.byteLength).getUint16(15, true)).toBe(5000);
   });
 
