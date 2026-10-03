@@ -7,6 +7,7 @@
 import { type Bytes, fromHex, toHex } from '../core/bytes';
 import type { MbitoClient } from '../core/mbito/mbitoClient';
 import { execUds, type UdsExchangeResult } from '../core/uds/udsChannel';
+import { REQUEST_TYPE_WRITE } from '../core/uds/execUds';
 import { applyPatches, changedByteIndexes, readBits } from './bits';
 import { type CodingBackup, saveBackup } from './backupStore';
 import { type CodingFeatureModel, type CodingOptionModel, type CodingSectionRef, type DecodedFeature, decodeFeature } from './codingModel';
@@ -124,6 +125,7 @@ export async function commitWrite(
 
   const write = await execUds(client, {
     txId: target.txId, rxId: target.rxId, body: concat(fromHex(feature.section.writeHex), proposal.after),
+    requestType: REQUEST_TYPE_WRITE,
     timeoutMs: CODING_WRITE_TIMEOUT_MS, delayAfterMs: 0, expectedResponseLength: fromHex(feature.section.writeHex).length,
   }, signal);
   const writeDetail = describeExchange(write);
@@ -203,7 +205,11 @@ export async function restoreFromBackup(client: MbitoClient, backup: CodingBacku
     await saveBackup(restored);
     return { status: 'VERIFIED', verified: current, backup: restored, message: 'Blocul este deja la valoarea originală' };
   }
-  const write = await execUds(client, { txId: target.txId, rxId: target.rxId, body: concat(fromHex(section.writeHex), original), timeoutMs: CODING_WRITE_TIMEOUT_MS, delayAfterMs: 0, expectedResponseLength: fromHex(section.writeHex).length }, signal);
+  const write = await execUds(client, {
+    txId: target.txId, rxId: target.rxId, body: concat(fromHex(section.writeHex), original),
+    requestType: REQUEST_TYPE_WRITE,
+    timeoutMs: CODING_WRITE_TIMEOUT_MS, delayAfterMs: 0, expectedResponseLength: fromHex(section.writeHex).length,
+  }, signal);
   if (write.semantic === 'NEGATIVE_RESPONSE') {
     throw new CodingError(`Restaurarea a fost refuzată (${describeExchange(write)})`);
   }
