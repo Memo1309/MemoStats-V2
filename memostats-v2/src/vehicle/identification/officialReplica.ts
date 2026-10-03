@@ -40,6 +40,7 @@ export function replicaFromCapture(ecu: string, rxHex: string, udsRequestHex: st
   const record = vehicleEcus.find(e => e.transmitIdNumeric === header.txId && e.receiveIdNumeric === header.rxId);
   const spec = {
     txId: header.txId,
+    requestType: header.requestType,
     rxId: header.rxId,
     body,
     timeoutMs: header.timeoutMs,
