@@ -20,8 +20,13 @@ const OFFSET = {
   actualLength: 19,     // MBito: payload_len (u16 LE)
 } as const;
 
-/** request_type for a normal diagnostic request. VERIFIED REAL VEHICLE: echoed as 00 in every capture. */
-export const REQUEST_TYPE_DIAGNOSTIC = 0x00;
+/** request_type / FrameDirection from MBito V2Utils.
+ * ReadV2Utils uses Read=0; WriteV2Utils uses Write=1 (VERIFIED DECOMPILED REFERENCE).
+ * Real read captures echo 00. Write=01 is now used only for explicit coding writes. */
+export const REQUEST_TYPE_READ = 0x00;
+export const REQUEST_TYPE_WRITE = 0x01;
+/** Backward-compatible alias used by the official-read replica checks. */
+export const REQUEST_TYPE_DIAGNOSTIC = REQUEST_TYPE_READ;
 /** resp_status placeholder on outgoing frames. INFERRED — the old MemoStats value, which the real
  * dongle accepted (real 01 0D / 22 F1 00 replies). MBito's own V2Utils default is not decoded. */
 export const RESPONSE_TYPE_PLACEHOLDER = 0xff;
@@ -50,6 +55,8 @@ export function rawTransportStatus(responseType: number): RawTransportStatus {
 
 export interface ExecUdsRequest {
   requestNr: number;
+  /** MBito FrameDirection: 0=Read, 1=Write. Omitted => Read. */
+  requestType?: number;
   txId: number;
   rxId: number;
   /** dongle-side wait for the ECU, ms */
@@ -63,7 +70,7 @@ export interface ExecUdsRequest {
 export function encodeExecUdsRequest(request: ExecUdsRequest): Bytes {
   const out = new Uint8Array(EXEC_UDS_HEADER_SIZE + request.body.length);
   const view = dataView(out);
-  view.setUint8(OFFSET.requestType, REQUEST_TYPE_DIAGNOSTIC);
+  view.setUint8(OFFSET.requestType, request.requestType ?? REQUEST_TYPE_READ);
   view.setUint8(OFFSET.requestNr, request.requestNr & 0xff);
   view.setUint8(OFFSET.responseType, RESPONSE_TYPE_PLACEHOLDER);
   view.setUint32(OFFSET.txId, request.txId, true);

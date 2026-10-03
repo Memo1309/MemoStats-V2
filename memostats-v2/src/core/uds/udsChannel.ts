@@ -22,6 +22,8 @@ import {
 
 export interface UdsRequestSpec {
   txId: number;
+  /** MBito inner request_type / FrameDirection: 0=Read (default), 1=Write. */
+  requestType?: number;
   rxId: number;
   body: Uint8Array;
   timeoutMs: number;
