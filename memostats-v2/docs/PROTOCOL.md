@@ -108,7 +108,7 @@ Encoder: `composeUDSCmdArg` (~L2040557). Decoder: `parseExecUDS` (~L1673818, rej
 
 | Off | Size | MBito field | Spec name | V2 outgoing value | Evidence |
 |---|---|---|---|---|---|
-| 0 | u8 | request_type | request_type | `0x00` | captured echo `00` |
+| 0 | u8 | request_type | FrameDirection | `0x00` Read, `0x01` Write | ReadV2Utils/WriteV2Utils decompiled; real read captures echo `00` |
 | 1 | u8 | request_nr | request_nr | 1…255 rolling; replica tests send the captured value (0) | echoed — VERIFIED REAL VEHICLE 2026-09-28 |
 | 2 | u8 | resp_status | response_type | `0xFF` placeholder | V2Utils default `EResponseType.placeholder` = 255 — VERIFIED DECOMPILED REFERENCE |
 | 3 | u32 LE | tx_id | sender_id | ECU request id | captured echo |
@@ -145,6 +145,16 @@ that is just SID+DID vs data, not an echo.)
 MBito has a separate normalized 0/1/2/3 enum elsewhere; V2 never mixes it with these wire values.
 V2 keeps `transport` (raw) and `semantic` (ISO 14229 meaning of the body) as separate fields; the UI shows the
 semantic result (`RĂSPUNDE`) and the raw status only as technical detail.
+
+### Read vs write request_type — VERIFIED DECOMPILED REFERENCE
+
+MBito's V2 command builder distinguishes direction in the inner 21-byte header:
+- `ReadV2Utils.command(...)` sets `request_type = FrameDirection.Read = 0x00`.
+- `WriteV2Utils.command(...)` sets `request_type = FrameDirection.Write = 0x01`.
+
+The outer request remains `EXEC_UDS (0x40)` for normal V2 single-script writes. MemoStats therefore uses
+`0x00` for reads/session requests and explicitly sets `0x01` for coding `2E` writes. This field is
+independent of the UDS SID inside the payload.
 
 ## 6. UDS semantics (ISO 14229-1)
 
