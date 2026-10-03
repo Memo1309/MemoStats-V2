@@ -19,7 +19,7 @@ import { runMed40IdentificationTest } from '../vehicle/identification/med40Test'
 import { runOfficialReplicaTest as runReplica } from '../vehicle/identification/officialReplica';
 import { type ManualRequestInput, runManualRequest as runManual } from '../vehicle/manualRequest';
 import { runV1Preflight } from '../vehicle/v1Preflight';
-import { type CommitResult, type CodingTarget, type WriteProposal, commitWrite, readCodingBlock, restoreFromBackup } from '../coding/codingEngine';
+import { type CommitResult, type CodingTarget, type WriteProposal, commitWrite, enterExtendedSession, readCodingBlock, restoreFromBackup } from '../coding/codingEngine';
 import type { CodingBackup } from '../coding/backupStore';
 import type { CodingFeatureModel, CodingSectionRef } from '../coding/codingModel';
 import { type ResolvedWorkflow, type WorkflowResult, type WorkflowStepResult, executeWorkflow } from '../coding/multiFeature';
@@ -218,7 +218,9 @@ async function withVehicleLock<T>(label: string, task: (signal: AbortSignal) => 
   const controller = new AbortController();
   scanAbort = controller;
   try {
-    return await task(controller.signal);
+    // stopLive() prevents new telemetry cycles, but an already-running BLE exchange may still be
+    // finishing. Queue the whole exclusive operation behind it and keep every inner UDS step atomic.
+    return await scheduler.run(label, Priority.INTERACTIVE, task, controller.signal);
   } finally {
     diagnosticsBusy = false;
     if (resumeLive && getState().connection === 'connected') startLiveData();
@@ -229,7 +231,11 @@ export const codingReadBlock = (target: CodingTarget, section: CodingSectionRef)
   withVehicleLock('citire codare', signal => readCodingBlock(client, target, section, signal));
 
 export const codingCommit = (target: CodingTarget, feature: CodingFeatureModel, proposal: WriteProposal): Promise<CommitResult> =>
-  withVehicleLock('scriere codare', signal => commitWrite(client, target, feature, proposal, signal));
+  withVehicleLock('scriere codare', async signal => {
+    // Standalone feature writes do not carry the DB workflow's explicit 10 03 step.
+    await enterExtendedSession(client, target, signal);
+    return commitWrite(client, target, feature, proposal, signal);
+  });
 
 export const runMileageCheck = (db: Parameters<typeof readAllMileage>[1]): Promise<MileageReading[]> =>
   withVehicleLock('kilometraj', signal => readAllMileage(client, db, signal));
@@ -238,7 +244,14 @@ export const runCodingWorkflow = (workflow: ResolvedWorkflow, onStep: (r: Workfl
   withVehicleLock('workflow codare', signal => executeWorkflow(client, workflow, onStep, signal));
 
 export const codingRestore = (backup: CodingBackup): Promise<CommitResult> =>
-  withVehicleLock('restaurare codare', signal => restoreFromBackup(client, backup, signal));
+  withVehicleLock('restaurare codare', async signal => {
+    const target: CodingTarget = {
+      ecuId: backup.ecuId, ecuName: backup.ecuName, variantId: backup.variantId, variantName: backup.variantName,
+      txId: backup.txId, rxId: backup.rxId, hardwareNumber: backup.hardwareNumber, softwareNumber: backup.softwareNumber,
+    };
+    await enterExtendedSession(client, target, signal);
+    return restoreFromBackup(client, backup, signal);
+  });
 
 // ---------- raw 0x33 / 0x40 transport debug (developer; one probe at a time) ----------
 
@@ -252,7 +265,7 @@ export const runProbeDebug = (txId: number, rxId: number): Promise<ProbeDebug> =
     try {
       const requestHex = toHex(encodeRequest(MbitoCmd.SCAN_PROBE, encodeScanProbe(txId, rxId)));
       log('SCAN', `SCAN WRITE ${hexId(txId)}→${hexId(rxId)}`, { tx: hexId(txId), rx: hexId(rxId), byteLength: 36, hex: requestHex });
-      const probe = await scheduler.run(`TEST 0x33 ${hexId(txId)}`, Priority.INTERACTIVE, s => probeEcu(client, txId, rxId, s), signal);
+      const probe = await probeEcu(client, txId, rxId, signal);
       await sleep(700, signal); // give a late B3 time to land in the raw capture even after the host timeout
       const slot = probe.rxRaw ? toHex(probe.rxRaw.subarray(4 + 24, 4 + SCAN_PROBE_PAYLOAD_LENGTH)) : null;
       const result: ProbeDebug['result'] = !probe.rxRaw ? 'NO_B3' : probe.present ? 'PRESENT' : probe.outcome === 'NO_RESPONSE' ? 'ZERO_SLOT' : 'PARSE_ERROR';
@@ -278,7 +291,7 @@ export const runIdentifyDebug = (txId: number, rxId: number): Promise<UdsDebug> 
     scanDebugStore.set(s => ({ ...s, running: true }));
     try {
       const spec = { txId, rxId, body: Uint8Array.of(0x22, 0xf1, 0x00), timeoutMs: 700, delayAfterMs: 0, expectedResponseLength: 7 };
-      const r = await scheduler.run(`TEST 0x40 ${hexId(txId)}`, Priority.INTERACTIVE, s => execUds(client, spec, s), signal);
+      const r = await execUds(client, spec, signal);
       const valid = r.semantic === 'POSITIVE_RESPONSE' || r.semantic === 'NEGATIVE_RESPONSE' || r.presence === 'PRESENT';
       const dbg: UdsDebug = {
         txId, rxId, requestHex: '22 F1 00', framesHex: r.frames.map(f => toHex(f.frame.raw)).join(' | ') || null,
