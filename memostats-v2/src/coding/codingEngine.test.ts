@@ -21,7 +21,7 @@ const TEMP: CodingFeatureModel = {
 const SECURED: CodingFeatureModel = { ...TEMP, section: { ...TEMP.section, accessLevel: 11, dllName: 'MED40_MED40_12_17_00.dll' } };
 
 /** A fake ECU holding a mutable 6-byte coding block; answers 22 02 00 reads and 2E 02 00 writes. */
-function ecuHoldingBlock(initial: string, opts: { acceptWrite?: boolean; readbackHex?: string } = {}) {
+function ecuHoldingBlock(initial: string, opts: { acceptWrite?: boolean; readbackHex?: string; writeReplyBody?: string } = {}) {
   const transport = new FakeTransport();
   let block = fromHex(initial);
   transport.respond = tx => {
@@ -31,7 +31,7 @@ function ecuHoldingBlock(initial: string, opts: { acceptWrite?: boolean; readbac
     else if (service === 0x22) transport.emit(reply(tx, `62 ${did.slice(0, 2)} ${did.slice(2)} ${toHex(opts.readbackHex ? fromHex(opts.readbackHex) : block)}`));
     else if (service === 0x2e) {
       if (opts.acceptWrite !== false) block = new Uint8Array(tx.slice(28));
-      transport.emit(reply(tx, `6E ${did.slice(0, 2)} ${did.slice(2)}`));
+      transport.emit(reply(tx, opts.writeReplyBody ?? `6E ${did.slice(0, 2)} ${did.slice(2)}`));
     }
   };
   return { client: new MbitoClient(transport), transport, get: () => toHex(block) };
@@ -96,6 +96,26 @@ describe('coding engine — access-0 write with read-back verification', () => {
     const result = await commitWrite(ecu.client, IC172, TEMP, buildProposal(block, nn(TEMP.options[1])));
     expect(result.status).toBe('FAILED');
     expect(result.message).toMatch(/recitire/);
+  });
+
+  it('recovers an applied write when the 2E reply is inconclusive, but only after matching read-back', async () => {
+    const ecu = ecuHoldingBlock('00 00 00 00 00 00', { writeReplyBody: '6F 02 00' }); // unexpected SID
+    const block = await readCodingBlock(ecu.client, IC172, TEMP.section);
+    const result = await commitWrite(ecu.client, IC172, TEMP, buildProposal(block, nn(TEMP.options[1])));
+    expect(result.status).toBe('VERIFIED');
+    expect(result.message).toMatch(/neconcludent/);
+    expect(result.message).toMatch(/UNEXPECTED_RESPONSE/);
+    expect(ecu.get()).toBe('80 00 00 00 00 00');
+  });
+
+  it('reports the real 2E outcome when an inconclusive reply is followed by a non-matching read-back', async () => {
+    const ecu = ecuHoldingBlock('00 00 00 00 00 00', { acceptWrite: false, writeReplyBody: '6F 02 00' });
+    const block = await readCodingBlock(ecu.client, IC172, TEMP.section);
+    const result = await commitWrite(ecu.client, IC172, TEMP, buildProposal(block, nn(TEMP.options[1])));
+    expect(result.status).toBe('FAILED');
+    expect(result.message).toMatch(/UNEXPECTED_RESPONSE/);
+    expect(result.message).toMatch(/transport OK/);
+    expect(result.message).toMatch(/recitirea diferă/);
   });
 
   it('refuses to write a SecurityAccess-gated feature (access level 11) — SECURITY_REQUIRED', async () => {
