@@ -25,6 +25,8 @@ export interface CodingTarget {
 }
 
 const CODING_TIMEOUT_MS = 2000;
+const CODING_WRITE_TIMEOUT_MS = 5000;
+const UNCERTAIN_WRITE_SETTLE_MS = 500;
 
 export class CodingError extends Error {}
 
@@ -122,7 +124,7 @@ export async function commitWrite(
 
   const write = await execUds(client, {
     txId: target.txId, rxId: target.rxId, body: concat(fromHex(feature.section.writeHex), proposal.after),
-    timeoutMs: CODING_TIMEOUT_MS, delayAfterMs: 0, expectedResponseLength: fromHex(feature.section.writeHex).length,
+    timeoutMs: CODING_WRITE_TIMEOUT_MS, delayAfterMs: 0, expectedResponseLength: fromHex(feature.section.writeHex).length,
   }, signal);
   const writeDetail = describeExchange(write);
 
@@ -141,8 +143,11 @@ export async function commitWrite(
 
   // §22: SUCCESS only after a valid read-back, never merely because 2E answered.
   // Conversely, a missing/partial/odd 2E reply does NOT prove the write was not applied: the ECU may
-  // have committed it while the final acknowledgement was lost. In that case read back the complete
-  // coding block and decide from the actual ECU state instead of leaving it unknown.
+  // still be finishing an ISO-TP multi-frame write when the dongle reports a timeout. Give only
+  // inconclusive writes a short settle window, then read back once. Never retransmit 2E automatically.
+  if (write.semantic !== 'POSITIVE_RESPONSE') {
+    await wait(UNCERTAIN_WRITE_SETTLE_MS, signal);
+  }
   let readBack: Bytes;
   try {
     readBack = await readCodingBlock(client, target, feature.section, signal);
@@ -198,8 +203,13 @@ export async function restoreFromBackup(client: MbitoClient, backup: CodingBacku
     await saveBackup(restored);
     return { status: 'VERIFIED', verified: current, backup: restored, message: 'Blocul este deja la valoarea originală' };
   }
-  const write = await execUds(client, { txId: target.txId, rxId: target.rxId, body: concat(fromHex(section.writeHex), original), timeoutMs: CODING_TIMEOUT_MS, delayAfterMs: 0, expectedResponseLength: fromHex(section.writeHex).length }, signal);
-  if (write.semantic !== 'POSITIVE_RESPONSE') throw new CodingError('Restaurarea a eșuat — ECU nu a acceptat scrierea');
+  const write = await execUds(client, { txId: target.txId, rxId: target.rxId, body: concat(fromHex(section.writeHex), original), timeoutMs: CODING_WRITE_TIMEOUT_MS, delayAfterMs: 0, expectedResponseLength: fromHex(section.writeHex).length }, signal);
+  if (write.semantic === 'NEGATIVE_RESPONSE') {
+    throw new CodingError(`Restaurarea a fost refuzată (${describeExchange(write)})`);
+  }
+  if (write.semantic !== 'POSITIVE_RESPONSE') {
+    await wait(UNCERTAIN_WRITE_SETTLE_MS, signal);
+  }
   const readBack = await readCodingBlock(client, target, section, signal);
   const matches = toHex(readBack) === backup.originalBytes;
   const restored = { ...backup, status: matches ? ('RESTORED' as const) : ('FAILED' as const), verifiedBytes: toHex(readBack) };
@@ -220,6 +230,17 @@ function describeExchange(result: UdsExchangeResult): string {
 }
 
 const errorMessage = (error: unknown): string => error instanceof Error ? error.message : String(error);
+
+function wait(ms: number, signal?: AbortSignal): Promise<void> {
+  if (signal?.aborted) return Promise.reject(signal.reason);
+  return new Promise((resolve, reject) => {
+    const timer = setTimeout(resolve, ms);
+    signal?.addEventListener('abort', () => {
+      clearTimeout(timer);
+      reject(signal.reason);
+    }, { once: true });
+  });
+}
 
 function concat(a: Uint8Array, b: Uint8Array): Bytes {
   const out = new Uint8Array(a.length + b.length);

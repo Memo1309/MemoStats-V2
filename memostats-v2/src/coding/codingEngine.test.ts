@@ -90,6 +90,14 @@ describe('coding engine — access-0 write with read-back verification', () => {
     expect(result.backup).toMatchObject({ status: 'VERIFIED', originalBytes: '00 00 00 00 00 00', proposedBytes: '80 00 00 00 00 00', verifiedBytes: '80 00 00 00 00 00' });
   });
 
+  it('uses a longer dongle timeout for 2E coding writes than for reads', async () => {
+    const ecu = ecuHoldingBlock('00 00 00 00 00 00');
+    const block = await readCodingBlock(ecu.client, IC172, TEMP.section);
+    await commitWrite(ecu.client, IC172, TEMP, buildProposal(block, nn(TEMP.options[1])));
+    const writeTx = nn(ecu.transport.written.find(tx => tx[25] === 0x2e));
+    expect(new DataView(writeTx.buffer, writeTx.byteOffset, writeTx.byteLength).getUint16(15, true)).toBe(5000);
+  });
+
   it('FAILS (never SUCCESS) when the ECU accepts 2E but the read-back differs', async () => {
     const ecu = ecuHoldingBlock('00 00 00 00 00 00', { acceptWrite: false });
     const block = await readCodingBlock(ecu.client, IC172, TEMP.section);
