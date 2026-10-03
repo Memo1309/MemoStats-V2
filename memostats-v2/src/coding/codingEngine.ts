@@ -6,7 +6,7 @@
 //   when the ECU/variant/length does not match. Backups persist for Restore Original.
 import { type Bytes, fromHex, toHex } from '../core/bytes';
 import type { MbitoClient } from '../core/mbito/mbitoClient';
-import { execUds } from '../core/uds/udsChannel';
+import { execUds, type UdsExchangeResult } from '../core/uds/udsChannel';
 import { applyPatches, changedByteIndexes, readBits } from './bits';
 import { type CodingBackup, saveBackup } from './backupStore';
 import { type CodingFeatureModel, type CodingOptionModel, type CodingSectionRef, type DecodedFeature, decodeFeature } from './codingModel';
@@ -124,21 +124,60 @@ export async function commitWrite(
     txId: target.txId, rxId: target.rxId, body: concat(fromHex(feature.section.writeHex), proposal.after),
     timeoutMs: CODING_TIMEOUT_MS, delayAfterMs: 0, expectedResponseLength: fromHex(feature.section.writeHex).length,
   }, signal);
-  if (write.semantic !== 'POSITIVE_RESPONSE') {
+  const writeDetail = describeExchange(write);
+
+  // An explicit negative UDS response proves the ECU rejected the write. Do not pretend a read-back
+  // can turn that rejection into a successful 2E transaction.
+  if (write.semantic === 'NEGATIVE_RESPONSE') {
     const backup = { ...base, status: 'FAILED' as const };
     await saveBackup(backup);
-    const why = write.semantic === 'NEGATIVE_RESPONSE' ? `refuz NRC 0x${(write.nrc ?? 0).toString(16).padStart(2, '0')}` : 'fără răspuns pozitiv';
-    return { status: 'FAILED', verified: null, backup, message: `Scrierea a eșuat (${why}) — nicio verificare` };
+    return {
+      status: 'FAILED',
+      verified: null,
+      backup,
+      message: `Scrierea a fost refuzată (${writeDetail}) — nicio modificare confirmată`,
+    };
   }
 
-  // §22: SUCCESS only after a valid read-back, never just because 2E answered.
-  const readBack = await readCodingBlock(client, target, feature.section, signal);
+  // §22: SUCCESS only after a valid read-back, never merely because 2E answered.
+  // Conversely, a missing/partial/odd 2E reply does NOT prove the write was not applied: the ECU may
+  // have committed it while the final acknowledgement was lost. In that case read back the complete
+  // coding block and decide from the actual ECU state instead of leaving it unknown.
+  let readBack: Bytes;
+  try {
+    readBack = await readCodingBlock(client, target, feature.section, signal);
+  } catch (error) {
+    const backup = { ...base, status: 'FAILED' as const };
+    await saveBackup(backup);
+    return {
+      status: 'FAILED',
+      verified: null,
+      backup,
+      message: `Scriere neconfirmată (${writeDetail}); recitirea a eșuat: ${errorMessage(error)}`,
+    };
+  }
+
   const matches = toHex(readBack) === toHex(proposal.after);
   const backup = { ...base, verifiedBytes: toHex(readBack), status: matches ? ('VERIFIED' as const) : ('FAILED' as const) };
   await saveBackup(backup);
-  return matches
-    ? { status: 'VERIFIED', verified: readBack, backup, message: 'Scriere confirmată prin recitire' }
-    : { status: 'FAILED', verified: readBack, backup, message: 'Verificarea prin recitire a eșuat — valoarea citită diferă de cea scrisă' };
+  if (matches) {
+    return {
+      status: 'VERIFIED',
+      verified: readBack,
+      backup,
+      message: write.semantic === 'POSITIVE_RESPONSE'
+        ? 'Scriere confirmată prin recitire'
+        : `Scriere confirmată prin recitire; răspunsul 2E a fost neconcludent (${writeDetail})`,
+    };
+  }
+  return {
+    status: 'FAILED',
+    verified: readBack,
+    backup,
+    message: write.semantic === 'POSITIVE_RESPONSE'
+      ? 'Verificarea prin recitire a eșuat — valoarea citită diferă de cea scrisă'
+      : `Scriere neconfirmată (${writeDetail}); recitirea diferă de blocul propus`,
+  };
 }
 
 /**
@@ -169,6 +208,18 @@ export async function restoreFromBackup(client: MbitoClient, backup: CodingBacku
     ? { status: 'VERIFIED', verified: readBack, backup: restored, message: 'Valoarea originală a fost restaurată și verificată' }
     : { status: 'FAILED', verified: readBack, backup: restored, message: 'Restaurarea nu s-a verificat la recitire' };
 }
+
+function describeExchange(result: UdsExchangeResult): string {
+  const parts = [result.semantic, `transport ${result.transport}`];
+  if (result.nrc !== undefined) parts.push(`NRC 0x${result.nrc.toString(16).padStart(2, '0').toUpperCase()}`);
+  if (result.final) {
+    parts.push(`resp_status 0x${result.final.header.responseType.toString(16).padStart(2, '0').toUpperCase()}`);
+    if (result.final.udsBody.length) parts.push(`UDS ${toHex(result.final.udsBody)}`);
+  }
+  return parts.join(' · ');
+}
+
+const errorMessage = (error: unknown): string => error instanceof Error ? error.message : String(error);
 
 function concat(a: Uint8Array, b: Uint8Array): Bytes {
   const out = new Uint8Array(a.length + b.length);
