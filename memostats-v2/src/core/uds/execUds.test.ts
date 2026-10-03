@@ -4,7 +4,7 @@ import { decodeFrame } from '../mbito/frame';
 import { MED40_IDENTIFICATION_REQUEST } from '../../vehicle/identification/med40Test';
 import { opCodeFromF100 } from '../../vehicle/identification/opCode';
 import { SEMANTIC_LABEL } from '../../ui/format';
-import { decodeExecUdsResponse, encodeExecUdsRequest, rawTransportStatus } from './execUds';
+import { REQUEST_TYPE_WRITE, decodeExecUdsResponse, encodeExecUdsRequest, rawTransportStatus } from './execUds';
 import { classifyUdsResponse, presenceOf } from './udsSemantics';
 
 // Official MBito app traffic captured passively from the user's W176 by old MemoStats
@@ -43,6 +43,21 @@ describe('EXEC_UDS V2 encoder', () => {
     const echoed = decodeFrame(fromHex(REAL_SCCM166_F100)).payload;
     // identical except resp_status (FF placeholder vs 00 OK) and payload_len (request vs response length)
     expect(toHex(inner.subarray(3, 19))).toBe(toHex(echoed.subarray(3, 19)));
+  });
+
+  it('encodes MBito WriteV2 requests with request_type / FrameDirection = 1', () => {
+    const inner = encodeExecUdsRequest({
+      requestNr: 7,
+      requestType: REQUEST_TYPE_WRITE,
+      txId: 0x76a,
+      rxId: 0x4ad,
+      timeoutMs: 3000,
+      delayAfterMs: 0,
+      expectedResponseLength: 3,
+      body: fromHex('2E 06 1F AA BB'),
+    });
+    expect(inner[0]).toBe(0x01);
+    expect(toHex(inner.subarray(21))).toBe('2E 06 1F AA BB');
   });
 });
 
